@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import { guides } from "@/lib/content";
 import { guideContent } from "@/lib/guides-data";
+import { siteConfig } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return guides
@@ -29,11 +30,26 @@ export async function generateMetadata({
   return {
     title: guide.meta.title,
     description: guide.meta.description,
-    alternates: { canonical: `/guides/${slug}` },
+    alternates: { canonical: `${siteConfig.url}/guides/${slug}` },
     openGraph: {
       type: "article",
+      url: `${siteConfig.url}/guides/${slug}`,
       title: guide.meta.title,
       description: guide.meta.description,
+      images: [
+        {
+          url: `${siteConfig.url}/opengraph-image.png`,
+          width: 1200,
+          height: 630,
+          alt: guide.meta.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: guide.meta.title,
+      description: guide.meta.description,
+      images: [`${siteConfig.url}/opengraph-image.png`],
     },
   };
 }
@@ -54,9 +70,38 @@ export default async function GuidePage({
     "@type": "Article",
     headline: meta.title,
     description: meta.description,
+    url: `${siteConfig.url}/guides/${slug}`,
     dateModified: meta.updated,
-    author: { "@type": "Organization", name: "GetPaid" },
-    publisher: { "@type": "Organization", name: "GetPaid" },
+    image: siteConfig.logoUrl,
+    author: {
+      "@type": "Organization",
+      name: "GetPaid",
+      url: siteConfig.url,
+      logo: siteConfig.logoUrl,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "GetPaid",
+      url: siteConfig.url,
+      logo: {
+        "@type": "ImageObject",
+        url: siteConfig.logoUrl,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/guides/${slug}`,
+    },
+  };
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Guides", item: `${siteConfig.url}/guides` },
+      { "@type": "ListItem", position: 3, name: meta.title, item: `${siteConfig.url}/guides/${slug}` },
+    ],
   };
 
   return (
@@ -64,6 +109,10 @@ export default async function GuidePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Container>
         <div className="mx-auto max-w-2xl">

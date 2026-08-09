@@ -1,12 +1,46 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import HeroCalculator from "@/components/tools/HeroCalculator";
 import { tools, guides } from "@/lib/content";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  openGraph: {
+    url: siteConfig.url,
+  },
+};
 
 export default function Home() {
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "GetPaid — Free Payment & Freelance Tools for India",
+    url: siteConfig.url,
+    description: siteConfig.description,
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteConfig.url,
+        },
+      ],
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border bg-white">
         <Container className="grid gap-14 py-16 md:grid-cols-2 md:items-center md:py-24">

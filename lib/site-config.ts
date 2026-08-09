@@ -5,4 +5,6 @@ export const siteConfig = {
   url: "https://getpaid.co.in",
   description:
     "Free calculators and guides for Indian freelancers and businesses: GST calculator, in-hand salary calculator, invoice generator, and payment gateway comparisons.",
+  // Logo URL used in Organization schema (helps Google show YOUR logo in search results)
+  logoUrl: "https://getpaid.co.in/logo.png",
 };

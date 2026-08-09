@@ -1,12 +1,43 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import GstCalculator from "@/components/tools/GstCalculator";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "GST Calculator — Add or Remove GST Instantly",
+  title: "GST Calculator India — Add or Remove GST Instantly (Free)",
   description:
-    "Free GST calculator for India. Add GST to a base amount or extract GST from a total. Get CGST, SGST, and IGST breakdowns instantly.",
-  alternates: { canonical: "/tools/gst-calculator" },
+    "Free online GST calculator for India. Add GST to a base amount or extract GST from a GST-inclusive total. Get CGST, SGST, and IGST breakdowns instantly. No sign-up required.",
+  alternates: { canonical: `${siteConfig.url}/tools/gst-calculator` },
+  keywords: [
+    "GST calculator",
+    "GST calculator India",
+    "add GST calculator",
+    "remove GST calculator",
+    "CGST SGST calculator",
+    "IGST calculator",
+    "GST inclusive calculator",
+    "free GST calculator online",
+  ],
+  openGraph: {
+    url: `${siteConfig.url}/tools/gst-calculator`,
+    title: "GST Calculator India — Add or Remove GST Instantly (Free)",
+    description:
+      "Free online GST calculator for India. Add GST or extract GST from totals. CGST, SGST, and IGST breakdowns. No sign-up needed.",
+    images: [
+      {
+        url: `${siteConfig.url}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "GetPaid GST Calculator India",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GST Calculator India — Free, No Sign-up",
+    description: "Add or remove GST instantly. CGST, SGST & IGST breakdowns.",
+    images: [`${siteConfig.url}/opengraph-image.png`],
+  },
 };
 
 const faqs = [
@@ -35,11 +66,25 @@ export default function GstCalculatorPage() {
     })),
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Tools", item: `${siteConfig.url}/tools` },
+      { "@type": "ListItem", position: 3, name: "GST Calculator", item: `${siteConfig.url}/tools/gst-calculator` },
+    ],
+  };
+
   return (
     <div className="py-14 md:py-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <Container>
         <div className="max-w-2xl">
@@ -80,3 +125,4 @@ export default function GstCalculatorPage() {
     </div>
   );
 }
+
