@@ -83,3 +83,11 @@ search/filter/pagination/detail/copy, fixture exclusion, mobile/desktop axe and
 sanitized logs without any DB writes. The normal production browser suite also
 verifies live DB reads and successful-empty/draft/synthetic isolation. CI runs
 both suites; no deployment job is added.
+
+## Observed rollout
+
+Commit09e2c22 was pushed and the public Vercel domain recovered. Fresh HTTP and
+real browser checks confirmed85 saved offers, seven main cards, Myntra page2,
+exact-code search, detail/copy and mobile accessibility. Saved mode is visibly
+active: private Vercel DB configuration remains unverified and still needs
+attention for live updates, while the authorized bundled catalogue works.

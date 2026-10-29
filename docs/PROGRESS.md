@@ -791,3 +791,19 @@ Checks actually run:
 Pushing this requested fix to the existing GitHub main branch can trigger the
 owner's configured Vercel integration. Actual live results are checked separately;
 local production tests alone are not proof of a completed hosted rollout.
+
+### Hosted rollout actually verified
+
+Pushed application fix09e2c22 to origin/main. Fresh HTTPS checks then confirmed
+www.getpaid.co.in returned200, seven main offer cards, saved-listing notice and
+no catalogue-load error. The apex still redirects to www. This is a verified
+hosted recovery, not just a successful local build.
+
+Real deployed browser checks passed:85 saved listings, seven per page, Myntra
+page2 of3, exact MYNTRA300 search, detail saved-date notice, reveal/clipboard copy,
+mobile no-overflow and axe, and zero page errors. Captures:
+docs/screenshots/vercel-recovered-desktop.png and vercel-recovered-mobile.png.
+No data writes or external messages occurred. The live site is currently using
+saved mode, confirming that live database access still needs Vercel-side
+configuration attention. The safe snapshot is the owner's authorized working
+alternative, not a claim that the hosted database secret has been repaired.
