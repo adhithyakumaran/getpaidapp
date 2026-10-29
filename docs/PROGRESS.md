@@ -725,3 +725,69 @@ zero violations and a working Myntra search returning19 real supplied listings.
 Screenshots: docs/screenshots/hero-offers-375.png and hero-offers-1440.png.
 No database, collector, indexing or deployment changes. Committed and pushed
 under the owner's standing GitHub-delivery instruction.
+
+## Vercel offer-load incident and approved saved-data fallback (2026-10-29)
+
+Verified fresh requests to getpaid.co.in and www.getpaid.co.in: Vercel served the
+current coupon app but zero cards and the catalogue-load error. Verified the
+existing Neon connection separately: PostgreSQL17, UTC and certificate-verified
+TLS all healthy. No connected Vercel management tool/project/login was available
+for inspecting Production secrets or function logs, so the exact hosted
+configuration failure cannot be claimed. Ignored .env.local is not uploaded by
+Git. The old client also rejected standard Neon sslmode=require before making a
+connection, a reproducible compatibility defect now fixed by upgrading that mode
+to verify-full (not weakening TLS). Other unsafe remote TLS modes stay rejected.
+
+The owner explicitly authorized keeping supplied public coupons in the app when
+DB reads fail. Added an export of **85 approved public supplied offers** at
+src/content/public-offers.json, from a read-only repeatable-read PostgreSQL17
+transaction using the existing public repository. No database writes, resets,
+imports or migrations occurred. The 27 withheld rows remain withheld. No drafts,
+synthetic fixtures, raw evidence, private eligibility/batch/approval metadata or
+credentials were exported. The actual source timestamps, conditions, null terms,
+source URLs and unverified status are preserved.
+
+Production reads still prefer PostgreSQL. Only read/configuration errors select
+the bundled saved data; a successful empty result remains empty. Development and
+tests never silently use this data. Saved listings display the capture date and
+an honest not-freshly-checked notice on lists and details, and reuse seven-item
+pagination, search, filters, detail pages, copy and expiry/start-date guards.
+PUBLIC_CATALOGUE_SNAPSHOT=0 disables this fallback. Changes after snapshot export,
+including withdrawals, require export/redeploy or disabling fallback: this dated
+copy is not daily reconciliation and never implies a fresh source check.
+
+Added npm run catalogue:export and npm run test:browser:fallback. Export is manual,
+not part of CI/build/page requests, requires configured PG17 and applies the
+existing approval policy. Server-side failures now log only allowlisted diagnostic
+codes; credentials, URLs, exception text and operational details stay off pages.
+See docs/VERCEL.md for the exact Production DATABASE_URL/redeploy checklist and
+saved-data refresh/revocation limits. No Vercel secrets were changed without
+account access. Added the outage browser suite to the existing CI checks.
+
+Files: src/modules/database/{client,diagnostics}.ts,
+src/modules/catalogue/{public.server,model,snapshot}.ts,
+src/content/public-offers.json, components/catalogue/{catalogue,snapshot-notice}.tsx,
+app/offers/[offerSlug]/page.tsx, app/globals.css,
+scripts/{export-public-catalogue.ts,test-fallback-browser.mjs,db-check.ts},
+tests/unit/snapshot.test.ts, package.json, .env.example,
+.github/workflows/ci.yml, docs/VERCEL.md and this progress record.
+
+Checks actually run:
+- npm run db:check -- --neon: connected, PG17/UTC, encrypted/authorized TLS.
+- npm run catalogue:export (equivalent tsx script invocation):85 narrow public
+  offers exported; read-only transaction, existing database preserved.
+- npm test: **100 tests /13 files passed**, including existing real PostgreSQL17
+  integration suites and six new snapshot/TLS/privacy/diagnostic behavior tests.
+- npm run typecheck, npm run lint, npm run build: passed.
+- npm run test:browser:fallback: passed production with missing credentials,
+  unreachable synthetic endpoint, and fallback disabled. Tested85 saved offers,
+  seven per page, saved-date warning, search/filter/pagination/detail/copy,
+  fixture exclusion, zero page errors and mobile/desktop axe. No DB writes.
+- npm run test:browser:production: passed normal DB publication policy,
+  successful-empty response, supplied import visibility, draft/fixture/private
+  exclusion, search/detail/copy, content/contact, noindex and preview isolation.
+- Screenshots: docs/screenshots/saved-offers-{desktop,mobile}.png.
+
+Pushing this requested fix to the existing GitHub main branch can trigger the
+owner's configured Vercel integration. Actual live results are checked separately;
+local production tests alone are not proof of a completed hosted rollout.

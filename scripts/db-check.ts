@@ -1,11 +1,11 @@
 import { existsSync } from 'node:fs';
 import { loadEnvFile } from 'node:process';
-import { createPool,assertPostgres17 } from '../src/modules/database/client';
+import { createPool,assertPostgres17,validatedConnectionString } from '../src/modules/database/client';
 if(existsSync('.env.local'))loadEnvFile('.env.local');
 async function main() {
   const configured=process.env.DATABASE_URL;
   if(!configured)throw new Error('DATABASE_NOT_CONFIGURED');
-  const url=new URL(configured);
+  const url=new URL(validatedConnectionString(configured));
   const local=['localhost','127.0.0.1','[::1]'].includes(url.hostname);
   const neon=url.hostname.endsWith('.neon.tech');
   console.log(JSON.stringify({provider:local?'local PostgreSQL':neon?'Neon PostgreSQL':'other hosted PostgreSQL',endpointMode:url.hostname.includes('-pooler.')?'pooled':'direct',verifiedTLS:url.searchParams.get('sslmode')==='verify-full',migrationCredential:!!process.env.MIGRATION_DATABASE_URL}));

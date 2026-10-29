@@ -35,7 +35,7 @@ export const CatalogueOffer=z.object({
   conditions:z.array(z.string().max(300)).max(12),preview:z.boolean(),origin:z.enum(['collected','supplied']).default('collected'),
 });
 export type CatalogueOffer=z.infer<typeof CatalogueOffer>;
-export interface CataloguePage {offers:CatalogueOffer[];relatedOffers?:CatalogueOffer[];total:number;page:number;pages:number;query:CatalogueQuery;preview:boolean;now:string;error?:string}
+export interface CataloguePage {offers:CatalogueOffer[];relatedOffers?:CatalogueOffer[];total:number;page:number;pages:number;query:CatalogueQuery;preview:boolean;now:string;error?:string;snapshotAt?:string}
 export const PAGE_SIZE=7;
 // Automatic collection remains closed. Explicitly approved supplied imports have
 // a separate audited publication path, independent of collector authorization.

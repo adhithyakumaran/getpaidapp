@@ -1,0 +1,2811 @@
+{
+  "version": 1,
+  "capturedAt": "2026-10-29T14:28:42.443Z",
+  "offers": [
+    {
+      "id": "supplied-79686547fce99e002268f5daaa496597",
+      "slug": "supplied-79686547fce99e002268f5daaa496597",
+      "terms": {
+        "retailerId": "flipkart",
+        "title": "Flipkart: First-app-order discount advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FKNEW",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "shopping",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/flipkart-coupons"
+      },
+      "conditions": [
+        "New users; eligible products/terms need checkout confirmation",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-152a791e1ef75ed3ea7bbd3ba71764ab",
+      "slug": "supplied-152a791e1ef75ed3ea7bbd3ba71764ab",
+      "terms": {
+        "retailerId": "flipkart-flights",
+        "title": "Flipkart Flights: Up to 15% off international flights with SBI credit cards",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FLASHINT",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "travel",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/flipkart-coupons"
+      },
+      "conditions": [
+        "Card eligibility and booking conditions apply; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-2bed758fda138693b1e2c2a2f6aacb6a",
+      "slug": "supplied-2bed758fda138693b1e2c2a2f6aacb6a",
+      "terms": {
+        "retailerId": "flipkart-flights",
+        "title": "Flipkart Flights: Up to 15% off domestic flights with SBI credit cards",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FLASHDOM",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "travel",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/flipkart-coupons"
+      },
+      "conditions": [
+        "Card eligibility and booking conditions apply; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-a8c4d913105bece87a1d42b59bf0045b",
+      "slug": "supplied-a8c4d913105bece87a1d42b59bf0045b",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Extra 30% off advertised in source text",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "BEAUTYBLISS",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty-fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Current applicability and eligible products need checkout confirmation",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d493e11744f85c7159e24a716271c3e7",
+      "slug": "supplied-d493e11744f85c7159e24a716271c3e7",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to ₹100 off SHEIN products advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SHEINZ",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; listing notes minimum ₹899 in title; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d61daedac6b495b80a4ee0e115c70717",
+      "slug": "supplied-d61daedac6b495b80a4ee0e115c70717",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Free shipping advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FREEDEL",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected orders; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-ef7b8cb49b249a6c3e45a6874beefde1",
+      "slug": "supplied-ef7b8cb49b249a6c3e45a6874beefde1",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: 15% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "UNICKRG9WVVHXLX",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Student-related offer title on source; eligibility unclear; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-057fff3179ed8c9a63554a543e10c108",
+      "slug": "supplied-057fff3179ed8c9a63554a543e10c108",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to 25% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW25",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-4da8a87cfaed534ba439539edf7b52bd",
+      "slug": "supplied-4da8a87cfaed534ba439539edf7b52bd",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: 20% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "AJIOGRAM20",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-ac1f698c141c125b3641ac4cffc36fdb",
+      "slug": "supplied-ac1f698c141c125b3641ac4cffc36fdb",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Flat 30% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW30",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-603749ae270fcd036f43154abd059137",
+      "slug": "supplied-603749ae270fcd036f43154abd059137",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Extra 30% off first order advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FIRSTBUY",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-b0254331edaeecee39121de2745c3c8f",
+      "slug": "supplied-b0254331edaeecee39121de2745c3c8f",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Extra 30% off first app order advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FIRSTAPP",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-a471b38c40d1eebf3886e0183d15e103",
+      "slug": "supplied-a471b38c40d1eebf3886e0183d15e103",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to 30% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SWEETHOME",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-4e12698cc14bf25bc2806d07893de98f",
+      "slug": "supplied-4e12698cc14bf25bc2806d07893de98f",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: ₹300 off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW300",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-99c096be9236e58a266fa78d23d0c8b0",
+      "slug": "supplied-99c096be9236e58a266fa78d23d0c8b0",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: ₹350 off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SALE350",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-fff7132c2f0b7356136be2ffa6494519",
+      "slug": "supplied-fff7132c2f0b7356136be2ffa6494519",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: ₹500 off first order advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW500",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "New users; selected products; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-296e3a02b6fa1d180087a9b201579df3",
+      "slug": "supplied-296e3a02b6fa1d180087a9b201579df3",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to ₹750 off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SALE5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-cf4e0cd6b1501cbde6aec29eda1de590",
+      "slug": "supplied-cf4e0cd6b1501cbde6aec29eda1de590",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Flat 10% off up to ₹500 advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-1401b7ae81916488ef6ac8a159407210",
+      "slug": "supplied-1401b7ae81916488ef6ac8a159407210",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to 5% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SAVE5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3e15d053b875c8c9bb9a3cd8fe10d71b",
+      "slug": "supplied-3e15d053b875c8c9bb9a3cd8fe10d71b",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to 20% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "WISH",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-bf3b7a576c4f43949ff325a2cf81ca21",
+      "slug": "supplied-bf3b7a576c4f43949ff325a2cf81ca21",
+      "terms": {
+        "retailerId": "ajio",
+        "title": "AJIO: Up to 90% off men's clothing advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GLOWUP",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/ajio-coupons"
+      },
+      "conditions": [
+        "Selected products; source listing valid through Oct 31, 2026; not checkout-tested",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout. Source-listed expiry: 2026-10-31; precise expiry time not supplied."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-ee90052eb7fb5e92286a635ed0757ea3",
+      "slug": "supplied-ee90052eb7fb5e92286a635ed0757ea3",
+      "terms": {
+        "retailerId": "zomato",
+        "title": "Zomato: 10% off with IDFC Bank debit cards",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "IDFCSWYP",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/zomato-coupons/"
+      },
+      "conditions": [
+        "Minimum order ₹299; card eligibility applies",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-b3edb82c896204f983151e54da1f753d",
+      "slug": "supplied-b3edb82c896204f983151e54da1f753d",
+      "terms": {
+        "retailerId": "zomato",
+        "title": "Zomato: ₹100 off restaurant-style meals",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GET100",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/zomato-coupons/"
+      },
+      "conditions": [
+        "No minimum advertised; terms apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-e89232c4be28b0148e05dc57ce311f86",
+      "slug": "supplied-e89232c4be28b0148e05dc57ce311f86",
+      "terms": {
+        "retailerId": "kurlon",
+        "title": "Kurlon: Extra 5% off; other discounts advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GB5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "home",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/chennai-deals/"
+      },
+      "conditions": [
+        "Mattresses; prepaid extra discount advertised",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-88587731def9f420436863960a60936b",
+      "slug": "supplied-88587731def9f420436863960a60936b",
+      "terms": {
+        "retailerId": "redbus",
+        "title": "redBus: 12% off up to ₹250 + 12% cashback advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GRAB500",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "travel",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/delhi-deals/"
+      },
+      "conditions": [
+        "New users; minimum booking ₹200; limited-period terms",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-b0f20c6c5f9c983da7c5881a4b8ca129",
+      "slug": "supplied-b0f20c6c5f9c983da7c5881a4b8ca129",
+      "terms": {
+        "retailerId": "gostops",
+        "title": "goSTOPS: 10% off hostel bookings",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ZOU10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "travel",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/gostops-coupons"
+      },
+      "conditions": [
+        "All properties advertised; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-4ebed096269be10b7ffad8dc683b3d16",
+      "slug": "supplied-4ebed096269be10b7ffad8dc683b3d16",
+      "terms": {
+        "retailerId": "damensch",
+        "title": "DaMENSCH: 12% off sitewide advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ZOUTON12",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "clothing",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/clothing-%26-accessories"
+      },
+      "conditions": [
+        "Listing says valid to Oct 31 2026; check checkout",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-c2e74f10ac9c80bf85d8da4c4092d7cc",
+      "slug": "supplied-c2e74f10ac9c80bf85d8da4c4092d7cc",
+      "terms": {
+        "retailerId": "damensch",
+        "title": "DaMENSCH: 20% off briefs and more",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SUMMER20",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "clothing",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/clothing-%26-accessories"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d31d55439f33898f98a937e5cdde35bb",
+      "slug": "supplied-d31d55439f33898f98a937e5cdde35bb",
+      "terms": {
+        "retailerId": "reliance-digital",
+        "title": "Reliance Digital: ₹750 off sitewide orders above ₹15,000 advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RD750",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "electronics",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/mobile"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-e7a8733ea39589604134615bbf91e184",
+      "slug": "supplied-e7a8733ea39589604134615bbf91e184",
+      "terms": {
+        "retailerId": "reliance-digital",
+        "title": "Reliance Digital: ₹300 off orders above ₹7,500 advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RD300",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "electronics",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/mobile"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-63d32afe99d003f94911223272db86eb",
+      "slug": "supplied-63d32afe99d003f94911223272db86eb",
+      "terms": {
+        "retailerId": "reliance-digital",
+        "title": "Reliance Digital: ₹500 off orders over ₹15,000 advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RDFIRST500",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "electronics",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/mobile"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d6ea9170e8c32700dad92a4d5953f279",
+      "slug": "supplied-d6ea9170e8c32700dad92a4d5953f279",
+      "terms": {
+        "retailerId": "reliance-digital",
+        "title": "Reliance Digital: ₹300 off orders over ₹5,000 advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RDFIRST300",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "electronics",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/mobile"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3e09295c0dbe2002788ab784614b907c",
+      "slug": "supplied-3e09295c0dbe2002788ab784614b907c",
+      "terms": {
+        "retailerId": "croma",
+        "title": "Croma: ₹2,000 off orders over ₹35,000",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "CTNFEST7XVBU",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "electronics",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/mobile"
+      },
+      "conditions": [
+        "Selected products; source page lists validity to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-aa1fec63b624814363e1bc94429477dc",
+      "slug": "supplied-aa1fec63b624814363e1bc94429477dc",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: Extra 10% off hair products",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ALLHAIR10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Selected hair products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-8c9425c1d287d2961e7f274eb5f5fcc0",
+      "slug": "supplied-8c9425c1d287d2961e7f274eb5f5fcc0",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: ₹400 off first purchase",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA400I",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "New users; selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-64c2a5dd541896453723e477636dca2e",
+      "slug": "supplied-64c2a5dd541896453723e477636dca2e",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: ₹300 off orders above ₹2,000",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "JOY300",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-06284862cd1e6cc519d1cdff6ead6bfd",
+      "slug": "supplied-06284862cd1e6cc519d1cdff6ead6bfd",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: 15% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NEW15",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3c941ede6984f0b0ddaa903e5d77d469",
+      "slug": "supplied-3c941ede6984f0b0ddaa903e5d77d469",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: ₹500 off orders above ₹3,000",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "JOY500",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-cf3983d8152cdf8fa8a7af5b6125c217",
+      "slug": "supplied-cf3983d8152cdf8fa8a7af5b6125c217",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: 10% off orders above ₹500",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NYKDSAVE10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Selected products; listing says valid to Oct 31 2026",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-0d63f62fa934f54a682e4afd25caf745",
+      "slug": "supplied-0d63f62fa934f54a682e4afd25caf745",
+      "terms": {
+        "retailerId": "nykaa",
+        "title": "Nykaa: Up to 60% off + extra 20% advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA20%",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/nykaa-coupons"
+      },
+      "conditions": [
+        "Sale; verify on Nykaa checkout",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-24219e4217d27715543bc30c64cda5ec",
+      "slug": "supplied-24219e4217d27715543bc30c64cda5ec",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: Up to ₹100 cashback",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MOBIZEP",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Eligibility/checkout confirmation required",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3022edcc2476a87eeb1450a6d613a02c",
+      "slug": "supplied-3022edcc2476a87eeb1450a6d613a02c",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: 5% cashback via MobiKwik",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MBK100",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Wallet terms apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3e1d44d157e2745d6dd15cc5d80ad51e",
+      "slug": "supplied-3e1d44d157e2745d6dd15cc5d80ad51e",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: 5% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ONECARD100",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Selected orders; card/merchant terms apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-32a04ca6804d1ba22d9b9065309cfd9c",
+      "slug": "supplied-32a04ca6804d1ba22d9b9065309cfd9c",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: Instant 10% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FBCREDIT",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Payment/card eligibility needs confirmation",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-2cfee045b8069213c84aee7ce065be92",
+      "slug": "supplied-2cfee045b8069213c84aee7ce065be92",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: 10% off Durex products",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "DUREX10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Selected products; source says listing under Zepto coupons",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-e36d86d713edd75205364aaedc4ca314",
+      "slug": "supplied-e36d86d713edd75205364aaedc4ca314",
+      "terms": {
+        "retailerId": "zepto",
+        "title": "Zepto: Up to ₹200 off with ICICI Bank cards",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ICICIZEP",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/zepto-coupons"
+      },
+      "conditions": [
+        "Eligible ICICI card; selected products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d1319b0aaeebbb43e297a91d2997c499",
+      "slug": "supplied-d1319b0aaeebbb43e297a91d2997c499",
+      "terms": {
+        "retailerId": "dot-key",
+        "title": "Dot & Key: ₹100 off app orders",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "APPFIRST",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/personal-care"
+      },
+      "conditions": [
+        "Selected products/app eligibility",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-cbaa3e04b243e12b675f4ecd9812c96f",
+      "slug": "supplied-cbaa3e04b243e12b675f4ecd9812c96f",
+      "terms": {
+        "retailerId": "dot-key",
+        "title": "Dot & Key: ₹100 off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "SAVE100",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/personal-care"
+      },
+      "conditions": [
+        "Selected products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-3e44a24673b92cef8b2b4c9c2f93d8cf",
+      "slug": "supplied-3e44a24673b92cef8b2b4c9c2f93d8cf",
+      "terms": {
+        "retailerId": "dot-key",
+        "title": "Dot & Key: Up to 20% off + extra 5% advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GET20",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/personal-care"
+      },
+      "conditions": [
+        "Selected products; checkout confirmation required",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-7441e6765d69b8ae7461e8850c131cd0",
+      "slug": "supplied-7441e6765d69b8ae7461e8850c131cd0",
+      "terms": {
+        "retailerId": "muscleblaze",
+        "title": "MuscleBlaze: Extra 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MBNEW10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "personal-care",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/personal-care"
+      },
+      "conditions": [
+        "New users; selected supplements",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-9548d1e0a209ec22e6d10db77641ff52",
+      "slug": "supplied-9548d1e0a209ec22e6d10db77641ff52",
+      "terms": {
+        "retailerId": "hk-vitals",
+        "title": "HK Vitals: Extra 10% off Bi-Layer Multivitamin Plus Men",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ACTIVE",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "personal-care",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/personal-care"
+      },
+      "conditions": [
+        "Selected product; checkout confirmation required",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-92ccfe39547454694b70b69d90358db5",
+      "slug": "supplied-92ccfe39547454694b70b69d90358db5",
+      "terms": {
+        "retailerId": "rage-coffee",
+        "title": "Rage Coffee: 20% off coffee",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RAGE20",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/groceries"
+      },
+      "conditions": [
+        "Selected products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-c617f650105e743754d572a4d69d4d99",
+      "slug": "supplied-c617f650105e743754d572a4d69d4d99",
+      "terms": {
+        "retailerId": "rage-coffee",
+        "title": "Rage Coffee: 15% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RCFLAT15",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/groceries"
+      },
+      "conditions": [
+        "Selected orders",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-34cc1d6c22475351d1dfdf348f9c49cd",
+      "slug": "supplied-34cc1d6c22475351d1dfdf348f9c49cd",
+      "terms": {
+        "retailerId": "rage-coffee",
+        "title": "Rage Coffee: 30% off best-selling combos",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "COFFEE30",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/groceries"
+      },
+      "conditions": [
+        "Selected combos",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-a527a670411f7ccc5356162ef7ed43c1",
+      "slug": "supplied-a527a670411f7ccc5356162ef7ed43c1",
+      "terms": {
+        "retailerId": "rage-coffee",
+        "title": "Rage Coffee: 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RAGE10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "groceries",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.zoutons.com/category/groceries"
+      },
+      "conditions": [
+        "Selected products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d237621b8b318a61451a2cdf49eef9a7",
+      "slug": "supplied-d237621b8b318a61451a2cdf49eef9a7",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: 25% off sitewide advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "ZTMJ25",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected orders; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-fcb0e6e6f4cea6840612849e455b8338",
+      "slug": "supplied-fcb0e6e6f4cea6840612849e455b8338",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: Up to 50% off selected items",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "2XMOJO",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected products; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d7c721c126eefad9e0e972e39556a70b",
+      "slug": "supplied-d7c721c126eefad9e0e972e39556a70b",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: Mojo Pizza voucher worth ₹200",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "2XPIZZA",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Voucher conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-5c77c3a8da07d9b3025dd9e613df081e",
+      "slug": "supplied-5c77c3a8da07d9b3025dd9e613df081e",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: 40% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "RUPAYMOJO40",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Payment method/merchant terms may apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-00e8e053a68dad0e5e2669172df90c69",
+      "slug": "supplied-00e8e053a68dad0e5e2669172df90c69",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: 25% off 2X toppings pizzas",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GOGETIT",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected pizzas; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-c661258fd18ccfba77aa12377252cdc9",
+      "slug": "supplied-c661258fd18ccfba77aa12377252cdc9",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: ₹150 off pizzas",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MOJOIN",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected orders; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-5608a2a672dce6086c0de301d043e410",
+      "slug": "supplied-5608a2a672dce6086c0de301d043e410",
+      "terms": {
+        "retailerId": "mojo-pizza",
+        "title": "Mojo Pizza: Regular 7-inch pizza at ₹99",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "HELLOMOJO",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected items; merchant terms apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-269d7775b19f70eb5be39331426ecc5b",
+      "slug": "supplied-269d7775b19f70eb5be39331426ecc5b",
+      "terms": {
+        "retailerId": "pizza-hut",
+        "title": "Pizza Hut: 15% cashback advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "GET15",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Gift-card purchase; cashback terms apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-d71c4609cdb5c79e86f4e71ee305c5e4",
+      "slug": "supplied-d71c4609cdb5c79e86f4e71ee305c5e4",
+      "terms": {
+        "retailerId": "kfc",
+        "title": "KFC: 10% off orders",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "KFC10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected orders; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-1502b707688d4f0dceebf255f9547b1a",
+      "slug": "supplied-1502b707688d4f0dceebf255f9547b1a",
+      "terms": {
+        "retailerId": "pizza-hut",
+        "title": "Pizza Hut: Up to 60% off + ₹75 off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "OYOPIZZAHUT",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Selected orders; checkout conditions apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-aee4a808b36ec546fb70b06ce8674084",
+      "slug": "supplied-aee4a808b36ec546fb70b06ce8674084",
+      "terms": {
+        "retailerId": "pizza-hut",
+        "title": "Pizza Hut: ₹100 off pizzas",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "HUT100",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "food",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://zoutons.com/category/food"
+      },
+      "conditions": [
+        "Terms/eligible cart shown at checkout",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-bc61dd6896b77618940bab0a21eb29d6",
+      "slug": "supplied-bc61dd6896b77618940bab0a21eb29d6",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 5% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "TRYNEWPURVAJA",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹999",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-25fc65b5fe878876661a1e84535408a4",
+      "slug": "supplied-25fc65b5fe878876661a1e84535408a4",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 15% off up to ₹300",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "TRYETHNIC15",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Ethnic wear; selected accounts",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-6a273923373024f6da23dca54d227d1a",
+      "slug": "supplied-6a273923373024f6da23dca54d227d1a",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "TRYWOMENWESTERNWEAR",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.784Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Women's western wear; selected categories",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-ac3b817c03252947bdd7d6c58865df44",
+      "slug": "supplied-ac3b817c03252947bdd7d6c58865df44",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FWDEXTRAS10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "New users; orders above ₹1,299",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-ed5322f1940dd5ad22fb3265a257cf67",
+      "slug": "supplied-ed5322f1940dd5ad22fb3265a257cf67",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 15% off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA4YOU",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "New users; selected sale products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-b64bfec49608b66adfa8bf6def8412d8",
+      "slug": "supplied-b64bfec49608b66adfa8bf6def8412d8",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 5% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FABLESTREET5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Fable Street; minimum ₹1,699",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-f9cfeb3253236e10fedf5ae7e3515081",
+      "slug": "supplied-f9cfeb3253236e10fedf5ae7e3515081",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 20% off, max ₹250",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MISSEDYOU",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹699; selected accounts",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-23bd7097b16dd441a82e87a41114993d",
+      "slug": "supplied-23bd7097b16dd441a82e87a41114993d",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 25% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MAKEUPDELIGHT",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹249; makeup products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-355cceb0879472427e4e31b49d048b63",
+      "slug": "supplied-355cceb0879472427e4e31b49d048b63",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FOOTWEAR10",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "footwear",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Selected footwear products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-e2dd882923dcadfbe72f4f233d2618e0",
+      "slug": "supplied-e2dd882923dcadfbe72f4f233d2618e0",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 5% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FWDBFFEXTRA5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹300; max discount ₹100; selected FWD categories",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-a92b47e0ae74cde39ae80303fd98a975",
+      "slug": "supplied-a92b47e0ae74cde39ae80303fd98a975",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: ₹50 off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA50",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹400; additional bank-card offers may apply",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-1490f6405fa29ff9768607c13670c28d",
+      "slug": "supplied-1490f6405fa29ff9768607c13670c28d",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: ₹300 off advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA800",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹1,500; selected beauty categories",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-742473aae4dbc5469a20c4d16aedc4f3",
+      "slug": "supplied-742473aae4dbc5469a20c4d16aedc4f3",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 10% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "NORETURN1",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹199; non-returnable items",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-29d564d7a90d58285dc4118127a50e56",
+      "slug": "supplied-29d564d7a90d58285dc4118127a50e56",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Additional discount advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MYNTRASAVE",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "New-user/selected-product conditions; source has differing terms",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-e0c0517794450eb1b18a1bc54fdf9936",
+      "slug": "supplied-e0c0517794450eb1b18a1bc54fdf9936",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra ₹500 off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "EXTRA500",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "beauty",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Beauty products; minimum ₹2,500",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-758d0672588ece68b1907cc08907cccd",
+      "slug": "supplied-758d0672588ece68b1907cc08907cccd",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: 15% off up to ₹150",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "FWDU15",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Minimum ₹300; selected styles",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-6ed98c0fd53b8aa96dfa92fa964573e1",
+      "slug": "supplied-6ed98c0fd53b8aa96dfa92fa964573e1",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra 5% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "BFFFAB5",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "Sale/selected products; checkout eligibility varies",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-1df0ba9c5985ad572e52b86ac3f3dd86",
+      "slug": "supplied-1df0ba9c5985ad572e52b86ac3f3dd86",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Flat 35% off",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MYNTRAEXCLUSIVE1",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "First purchase; orders above ₹300; selected products",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    },
+    {
+      "id": "supplied-7aad1d91ccd1e8f27cacd67ec20ef6f5",
+      "slug": "supplied-7aad1d91ccd1e8f27cacd67ec20ef6f5",
+      "terms": {
+        "retailerId": "myntra",
+        "title": "Myntra: Extra ₹300 off; sale discounts advertised",
+        "description": "Source-listed claim supplied by the owner. Not independently checkout-tested.",
+        "kind": "CODE",
+        "code": "MYNTRA300",
+        "discountType": null,
+        "discountBps": null,
+        "discountPaise": null,
+        "minSpendPaise": null,
+        "maxDiscountPaise": null,
+        "currency": null,
+        "eligibility": {},
+        "validFrom": null,
+        "validUntil": null
+      },
+      "category": "fashion",
+      "lifecycle": "UNKNOWN",
+      "observedAt": "2026-10-29T11:19:43.783Z",
+      "source": {
+        "name": "Owner-supplied coupon CSV",
+        "url": "https://www.grabon.in/myntra-coupons/"
+      },
+      "conditions": [
+        "New users/app; minimum cart and selected-product rules vary",
+        "Treat as a candidate record. Confirm current eligibility and final payable amount at merchant checkout."
+      ],
+      "preview": false,
+      "origin": "supplied"
+    }
+  ]
+}

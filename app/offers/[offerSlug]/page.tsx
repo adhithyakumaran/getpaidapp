@@ -12,5 +12,5 @@ export default async function OfferPage({params}:{params:Promise<{offerSlug:stri
   const data=await loadPublicCatalogue({},offerSlug);
   if(data.error) return <div className="shell text-page" role="alert"><h1>Offer details are unavailable.</h1><p>Please try again in a moment.</p><Link href="/search" className="btn btn-outline">Browse offers</Link></div>;
   const offer=data.offers[0];if(!offer) notFound();
-  return <OfferDetail offer={offer} now={data.now}/>;
+  return <OfferDetail offer={offer} now={data.now} snapshotAt={data.snapshotAt}/>;
 }

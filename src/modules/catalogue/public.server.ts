@@ -5,6 +5,9 @@ import {resolveSearchIntent} from './search-intent';
 import {cache} from 'react';
 import { PUBLIC_PUBLICATION_READY, parseCatalogueQuery, type CataloguePage, type RawQuery } from './model';
 import type { Pool } from 'pg';
+import savedOffers from '../../content/public-offers.json';
+import {PublicCatalogueSnapshot,readPublicSnapshot,snapshotEnabled} from './snapshot';
+import {catalogueFailureCode} from '../database/diagnostics';
 const shared=globalThis as typeof globalThis & {couponWebPool?:Pool;couponWebVersion?:Promise<void>};
 function webPool() {
   if(!shared.couponWebPool) {
@@ -29,5 +32,14 @@ export async function loadPublicCatalogue(raw:RawQuery={},slug?:string):Promise<
   try {
     const data=await read(JSON.stringify(resolveSearchIntent(query)),slug);
     return {...empty,...data};
-  } catch { return {...empty,error:'Offers could not be loaded. Please try again.'}; }
+  } catch(error) {
+    // Only an allowlisted code is logged: never raw errors, URLs or credentials.
+    console.error('Public catalogue unavailable.',{code:catalogueFailureCode(error)});
+    if(snapshotEnabled(process.env)) {
+      const snapshot=PublicCatalogueSnapshot.safeParse(savedOffers);
+      if(snapshot.success&&Date.parse(snapshot.data.capturedAt)<=Date.now()+300000)
+        return {...empty,...readPublicSnapshot(snapshot.data,resolveSearchIntent(query),slug)};
+    }
+    return {...empty,error:'Offers could not be loaded. Please try again.'};
+  }
 }
