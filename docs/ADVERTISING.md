@@ -94,7 +94,25 @@ The isolation design is not represented as provider-certified.
 
 The owner-supplied sw.js has moved from the repository root to public/sw.js,
 so Next.js serves its unchanged contents at https://www.getpaid.co.in/sw.js.
-It imports the supplied 3nbf4.com worker with zone 12149090. No registration code,
-notification permission prompt or automatic push subscription was added. This
-file belongs to a different supplied provider configuration; hosting it does not
-repair banner fill or replace Social Bar setup.
+The latest supplied sw (1).js replaces the older worker: the served file now
+imports 5gvci.com with zone 12149211, unchanged from the supplied download.
+MultiTag may register this worker and offer push notifications; browser
+notification permission is controlled by the visitor.
+
+## Monetag MultiTag
+
+The exact quge5.com/88/tag.min.js script with data-zone=303388, async and
+data-cfasync=false is installed for production public pages. React 19 hoists
+async external scripts into the document head and deduplicates by src. Existing
+dev/test/initial-preview gating and the advertising kill switch are retained.
+No verification meta tag was added, following the owner?s cancellation.
+
+MultiTag automatically manages formats and placement; there is no manual left
+sidebar container. It can serve Onclick, Push Notifications, In-Page Push and
+Vignette Banner formats alongside existing advertising. Account settings control
+the mix. The provider script runs in the main page context; disclosures describe
+this, and mocked/blocked browser QA prevents generating live traffic.
+
+References: [Monetag installation](https://help.monetag.com/en/articles/6726318-how-do-i-get-started-as-a-publisher-paste-the-ad-tag-into-your-website),
+[MultiTag formats](https://help.monetag.com/en/articles/6726670-multitag-all-in-one),
+[React async script head placement](https://react.dev/reference/react-dom/components/script).

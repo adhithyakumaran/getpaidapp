@@ -38,7 +38,7 @@ try {
   assert.ok(ready,'Server did not become ready');
   browser=await chromium.launch({headless:true});
   const context=await browser.newContext({viewport:{width:1440,height:1000},permissions:['clipboard-read','clipboard-write']});
-  await context.route('**/*',route=>{const u=new URL(route.request().url());return u.pathname.startsWith('/advertising/')||['bauval.org','abscloud.org'].includes(u.hostname)?route.abort():route.continue();});const page=await context.newPage();const errors=[];
+  await context.route('**/*',route=>{const u=new URL(route.request().url());return u.pathname.startsWith('/advertising/')||['bauval.org','abscloud.org','quge5.com'].includes(u.hostname)?route.abort():route.continue();});const page=await context.newPage();const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   const visit=async path=>{await page.goto(base+path);await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
   const checkAxe=async()=>{const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[]);};

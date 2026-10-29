@@ -6,7 +6,7 @@ import {adUnits,adsEnabled,selectAdUnit,nativeFrameIsSeparate,type AdPlacement,t
 const AdvertisingContext=createContext<{enabled:boolean;nativeOrigin?:string}>({enabled:false});
 export function AdvertisingProvider({children,nativeOrigin}:{children:ReactNode;nativeOrigin?:string}){
  const pathname=usePathname();const enabled=adsEnabled({NODE_ENV:process.env.NODE_ENV,NEXT_PUBLIC_ADS_ENABLED:process.env.NEXT_PUBLIC_ADS_ENABLED})&&!pathname.startsWith('/preview');
- return <AdvertisingContext.Provider value={{enabled,nativeOrigin}}>{children}{enabled&&<Script id="getpaid-social-bar" src="https://bauval.org/14/5b63cc037017f3182c7f3102e6adf4e0" data-cfasync="false" strategy="afterInteractive"/>}</AdvertisingContext.Provider>;
+ return <AdvertisingContext.Provider value={{enabled,nativeOrigin}}>{children}{enabled&&<><script id="getpaid-monetag" src="https://quge5.com/88/tag.min.js" data-zone="303388" async data-cfasync="false"/><Script id="getpaid-social-bar" src="https://bauval.org/14/5b63cc037017f3182c7f3102e6adf4e0" data-cfasync="false" strategy="afterInteractive"/></>}</AdvertisingContext.Provider>;
 }
 function useMedia(query:string){return useSyncExternalStore(callback=>{const media=window.matchMedia(query);media.addEventListener('change',callback);return()=>media.removeEventListener('change',callback);},()=>window.matchMedia(query).matches,()=>false);}
 type AdStatus='loading'|'loaded'|'unavailable';

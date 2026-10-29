@@ -16,6 +16,7 @@ let browser;try{
    await route.fulfill({status:200,headers,body:await response.text()});return;
   }
   if(url.origin===base||['data:','about:','blob:'].includes(url.protocol)){await route.continue();return;}
+  if(url.hostname==='quge5.com'&&url.pathname==='/88/tag.min.js'){await route.fulfill({contentType:'application/javascript',body:'window.__mockMonetagLoads=(window.__mockMonetagLoads||0)+1;'});return;}
   if(url.hostname==='bauval.org'){
    providerRequests.push(url.href);if(url.pathname==='/14/5b63cc037017f3182c7f3102e6adf4e0'){await route.fulfill({contentType:'application/javascript',body:'window.__mockSocialBarLoads=(window.__mockSocialBarLoads||0)+1;'});return;}assert.ok(/^\/(21|22)\//.test(url.pathname),'No popunder request');if(mode==='blocked'){await route.abort();return;}
    const native=url.pathname.startsWith('/21/'),id=native?'native':url.pathname.includes('fb1eb20')?'rectangle':'leaderboard';
@@ -29,6 +30,7 @@ let browser;try{
  const visit=async path=>{await page.goto(base+path);await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
  await visit('/');assert.equal(await page.getByRole('button',{name:'Allow ads',exact:true}).count(),0);assert.equal(await page.getByRole('button',{name:'Ad settings',exact:true}).count(),0);
  await page.waitForFunction(()=>window.__mockSocialBarLoads===1);
+ await page.waitForFunction(()=>window.__mockMonetagLoads===1);assert.equal(await page.locator('head script#getpaid-monetag').count(),1);
  await page.frameLocator('.ad-slot-top iframe').locator('[data-mock-ad="leaderboard"]').waitFor();assert.ok(providerRequests.length>0,'Loads by default');assert.ok(providerRequests.every(url=>!url.includes('/21/')),'Native still waits for viewport');
  await page.locator('.ad-slot-sidebar').scrollIntoViewIfNeeded();await page.frameLocator('.ad-slot-sidebar iframe').locator('[data-mock-ad="rectangle"]').waitFor();
  await page.locator('.ad-slot-sidebar-native').scrollIntoViewIfNeeded();await page.frameLocator('.ad-slot-sidebar-native iframe').locator('[data-mock-ad="native"]').waitFor();

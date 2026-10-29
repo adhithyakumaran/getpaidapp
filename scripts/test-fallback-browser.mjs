@@ -11,7 +11,7 @@ async function scenario(database,enabled,full){
  child.stdout.on('data',b=>logs+=b);child.stderr.on('data',b=>logs+=b);let browser;
  try{
   let ready=false;for(let i=0;i<60;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}if(child.exitCode!==null)throw new Error('Fallback test server exited');await new Promise(r=>setTimeout(r,500));}assert.ok(ready);
-  browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:1000},permissions:['clipboard-read','clipboard-write']});await context.route('**/*',route=>{const u=new URL(route.request().url());return u.pathname.startsWith('/advertising/')||['bauval.org','abscloud.org'].includes(u.hostname)?route.abort():route.continue();});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:1000},permissions:['clipboard-read','clipboard-write']});await context.route('**/*',route=>{const u=new URL(route.request().url());return u.pathname.startsWith('/advertising/')||['bauval.org','abscloud.org','quge5.com'].includes(u.hostname)?route.abort():route.continue();});const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   const visit=async path=>{await page.goto(base+path);await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
   await visit('/');
   if(!enabled){assert.ok(await page.getByRole('heading',{name:'We could not show the offers.'}).isVisible());assert.equal(await page.locator('.offer-row').count(),0);return;}

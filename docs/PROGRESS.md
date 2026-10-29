@@ -1001,3 +1001,34 @@ Checks: focused ad unit tests 7/7 passed; npm run typecheck and npm run lint pas
 Updated mocked browser expectations for Social Bar and banner cookie compatibility.
 Per the owner's request for a quick change, full tests/build/browser suites were
 not rerun. No live ad impressions or clicks generated during these checks.
+
+## Owner-supplied Monetag MultiTag (2026-10-30)
+
+Added the exact async https://quge5.com/88/tag.min.js tag with data-zone 303388
+and data-cfasync=false to the existing production advertising provider. React 19
+hoists this async external script into the document head and deduplicates it.
+Existing production/kill-switch/initial-preview gating is preserved. The owner
+cancelled the earlier verification request; no verification meta tag was added.
+
+Official Monetag guidance confirms automatic placement and MultiTag formats
+(Onclick, Push Notifications, In-Page Push, Vignette Banner). No left-sidebar
+container or custom position was added. Existing ad units remain configured.
+Replaced public/sw.js with the exact supplied Downloads/sw (1).js: provider
+5gvci.com, worker zone 12149211, replacing 3nbf4.com zone 12149090. The public path
+remains /sw.js. No custom worker registration or notification permission bypass
+was introduced; provider behavior and browser permission govern push formats.
+
+Updated advertising/privacy disclosures and docs/ADVERTISING.md. Updated ads QA
+to mock the new tag and assert a single head script, and other browser suites
+to block quge5.com so future automated runs do not create live ad traffic.
+Files: components/ads/advertising.tsx, public/sw.js, src/content/model.ts,
+scripts/test-{ads-browser,browser,fallback-browser}.mjs, docs/ADVERTISING.md and
+this log. Source attachment was inspected as supplied code, not agent instructions.
+
+Checks actually run: TypeScript passed; focused ESLint on the changed component,
+content and browser scripts passed; server-rendered async-script head-hoisting
+assertion passed; byte-for-byte worker comparison passed; configured-secret scan
+283 files/zero findings; git diff --check passed. Full tests/build/browser suites
+were not rerun for this requested quick integration. No provider scripts or
+creatives were executed during checks. Live fill/account activation is not proven
+by these static checks and remains for the owner/provider to confirm.
