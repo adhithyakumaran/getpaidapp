@@ -21,8 +21,12 @@ pathname navigation remounts them once, while query-only pagination does not.
 Blocked/erroring scripts or a 12-second loading timeout produce an unavailable
 notice without affecting coupons. Native height messages are bounded.
 
-The supplied Social Bar and popunder remain uninstalled. There are no overlays,
-page-click hooks, fake clicks, timer refreshes or deceptive coupon controls.
+The supplied Social Bar now loads once through next/script after hydration on
+production public pages, per the owner?s explicit request. The provider controls
+its floating formats. It runs in the main page context; the separate-origin
+isolation below applies to banner/native units, not the Social Bar. The popunder
+remains uninstalled. No custom fake clicks, timer refreshes or deceptive coupon
+controls are added.
 No revenue, viewability, fill or click rate is promised.
 
 ## Native loading diagnosis and isolation
@@ -33,8 +37,10 @@ sandbox. Both banner tags returned HTTP 200; script availability alone does not
 prove creative fill. Direct native execution in the coupon page was rejected by
 automatic approval review because it would expose page cookies and data.
 
-Banners continue in opaque sandboxed frames. Native ads instead use an independent
-HTTPS origin, with allow-same-origin granted only to that foreign document.
+Banner and native ads use an independent HTTPS origin, with allow-same-origin
+granted only to that foreign document. The banner frames previously remained
+opaque while only native frames received this compatibility change; this is now
+consistent across all three display units.
 The browser's same-origin policy prevents reading the parent coupon DOM/cookies.
 The native iframe also requests credentialless isolation in supporting browsers.
 This does not make third-party advertising tracking-free.
@@ -83,3 +89,12 @@ not live inventory. Actual check outcomes are recorded in PROGRESS.md.
 Provider guidance: [banner placement and unique codes](https://adsterra.com/blog/how-banner-ads-make-money/).
 Host configuration: [Vercel system variables](https://vercel.com/docs/environment-variables/system-environment-variables).
 The isolation design is not represented as provider-certified.
+
+## Supplied service-worker file
+
+The owner-supplied sw.js has moved from the repository root to public/sw.js,
+so Next.js serves its unchanged contents at https://www.getpaid.co.in/sw.js.
+It imports the supplied 3nbf4.com worker with zone 12149090. No registration code,
+notification permission prompt or automatic push subscription was added. This
+file belongs to a different supplied provider configuration; hosting it does not
+repair banner fill or replace Social Bar setup.

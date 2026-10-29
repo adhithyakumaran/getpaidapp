@@ -23,9 +23,9 @@ it('keeps coupon-domain documents opaque and noindexed, with load-status message
  vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_ADS_ENABLED','1');vi.stubEnv('NATIVE_AD_FRAME_ORIGIN','https://ads-fixture.vercel.app');
  for(const unit of['rectangle','native']){const r=GET(new Request('https://getpaid.co.in/advertising/frame?unit='+unit));expect(r.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');expect(r.headers.get('Content-Security-Policy')).not.toContain('allow-same-origin');expect(await r.text()).toContain('getpaid-ad-status');}
 });
-it('allows native cookie APIs only on the independent configured ad host, preserving parent origin isolation',()=>{
+it('allows banner and native storage APIs only on the independent ad host, preserving parent origin isolation',()=>{
  vi.stubEnv('NODE_ENV','production');vi.stubEnv('NEXT_PUBLIC_ADS_ENABLED','1');vi.stubEnv('NATIVE_AD_FRAME_ORIGIN','https://ads-fixture.vercel.app');
- const r=GET(new Request('https://ads-fixture.vercel.app/advertising/frame?unit=native'));expect(r.headers.get('Content-Security-Policy')).toContain('allow-same-origin');expect(r.headers.get('Content-Security-Policy')).toContain('frame-ancestors https://getpaid.co.in https://www.getpaid.co.in');
+ for(const unit of['rectangle','leaderboard','native']){const r=GET(new Request('https://ads-fixture.vercel.app/advertising/frame?unit='+unit));expect(r.headers.get('Content-Security-Policy')).toContain('allow-same-origin');expect(r.headers.get('Content-Security-Policy')).toContain('frame-ancestors https://getpaid.co.in https://www.getpaid.co.in');}
  expect(nativeFrameIsSeparate('https://ads-fixture.vercel.app','https://getpaid.co.in')).toBe(true);expect(nativeFrameIsSeparate('https://ads-fixture.vercel.app','https://ads-fixture.vercel.app')).toBe(false);
 });
 it('never selects the coupon domain, its cookie-sharing subdomains, unsafe schemes or credential URLs as a native host',()=>{

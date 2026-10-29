@@ -3,7 +3,7 @@ export function GET(request:Request){
  const url=new URL(request.url),params=url.searchParams,unit=params.get('unit')??'';
  if(!adsEnabled(process.env)||params.getAll('unit').length!==1||!isAdUnit(unit))return new Response('Not found',{status:404});
  const nativeOrigin=nativeFrameOrigin(process.env);
- const separateNative=unit==='native'&&nativeFrameIsSeparate(nativeOrigin,'https://getpaid.co.in')&&url.origin===nativeOrigin;
+ const separateNative=nativeFrameIsSeparate(nativeOrigin,'https://getpaid.co.in')&&url.origin===nativeOrigin;
  // Same-origin cookie/storage access is granted ONLY on the independent ad host.
  // The coupon-domain response always keeps its opaque-origin sandbox.
  const sandbox='allow-scripts allow-popups allow-popups-to-escape-sandbox'+(separateNative?' allow-same-origin':'');

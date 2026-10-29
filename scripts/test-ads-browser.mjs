@@ -17,17 +17,18 @@ let browser;try{
   }
   if(url.origin===base||['data:','about:','blob:'].includes(url.protocol)){await route.continue();return;}
   if(url.hostname==='bauval.org'){
-   providerRequests.push(url.href);assert.ok(/^\/(21|22)\//.test(url.pathname),'No popup/social request');if(mode==='blocked'){await route.abort();return;}
+   providerRequests.push(url.href);if(url.pathname==='/14/5b63cc037017f3182c7f3102e6adf4e0'){await route.fulfill({contentType:'application/javascript',body:'window.__mockSocialBarLoads=(window.__mockSocialBarLoads||0)+1;'});return;}assert.ok(/^\/(21|22)\//.test(url.pathname),'No popunder request');if(mode==='blocked'){await route.abort();return;}
    const native=url.pathname.startsWith('/21/'),id=native?'native':url.pathname.includes('fb1eb20')?'rectangle':'leaderboard';
    const html='<div data-mock-ad="'+id+'" style="font:16px Arial;padding:20px;box-sizing:border-box;height:'+(native?320:id==='rectangle'?250:90)+'px">Mock advertisement - not live inventory</div>';
    const code=native?'void document.cookie;document.getElementById("container-c567c1f1857b22c3352292625fe00f45").innerHTML='+JSON.stringify(html)+';':'if(!window.atOptions||window.atOptions.width!=='+(id==='rectangle'?300:728)+')throw new Error("Wrong options");document.write('+JSON.stringify(html)+');';
-   await route.fulfill({contentType:'application/javascript',body:code+'try{parent.document.documentElement.setAttribute("data-ad-escaped","yes");}catch(e){}'});return;
+   await route.fulfill({contentType:'application/javascript',body:'void document.cookie;'+code+'try{parent.document.documentElement.setAttribute("data-ad-escaped","yes");}catch(e){}'});return;
   }
   otherExternal.push(url.origin);await route.abort();
  });
  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
  const visit=async path=>{await page.goto(base+path);await page.locator('h1').waitFor();await page.evaluate(()=>document.fonts.ready);};
  await visit('/');assert.equal(await page.getByRole('button',{name:'Allow ads',exact:true}).count(),0);assert.equal(await page.getByRole('button',{name:'Ad settings',exact:true}).count(),0);
+ await page.waitForFunction(()=>window.__mockSocialBarLoads===1);
  await page.frameLocator('.ad-slot-top iframe').locator('[data-mock-ad="leaderboard"]').waitFor();assert.ok(providerRequests.length>0,'Loads by default');assert.ok(providerRequests.every(url=>!url.includes('/21/')),'Native still waits for viewport');
  await page.locator('.ad-slot-sidebar').scrollIntoViewIfNeeded();await page.frameLocator('.ad-slot-sidebar iframe').locator('[data-mock-ad="rectangle"]').waitFor();
  await page.locator('.ad-slot-sidebar-native').scrollIntoViewIfNeeded();await page.frameLocator('.ad-slot-sidebar-native iframe').locator('[data-mock-ad="native"]').waitFor();

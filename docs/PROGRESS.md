@@ -971,3 +971,33 @@ exercises the default public production alias with all foreign requests
 intercepted; zero live ad impressions/clicks. Secret scan: 283 files, zero findings.
 An unrelated untracked sw.js appeared during the task; it is not included or
 installed by this change.
+
+## Banner compatibility, Social Bar and supplied worker (2026-10-30)
+
+Owner reports native sidebar ads show while top/upper-sidebar banners stay blank.
+Inspection found only native used the separate-origin cookie-compatible document;
+both banners still used opaque frames. Applied the same independent public ad
+host, allow-same-origin on that host only, and credentialless iframe attribute to
+all three display units. Coupon-domain responses remain opaque; parent coupon
+DOM/cookies remain isolated. This removes an integration inconsistency, not proof
+of live creative fill: provider account/origin restrictions and browser blockers
+can still affect serving.
+
+Added the exact owner-supplied Social Bar tag
+bauval.org/14/5b63cc037017f3182c7f3102e6adf4e0 through next/script afterInteractive
+in the production advertising provider. It loads once and excludes initial
+preview/dev/test pages. Unlike display frames, the Social Bar runs in the main
+page as its provider integration requires and controls its floating formats.
+Updated disclosure/privacy copy accordingly. The supplied popunder remains absent.
+Moved the unchanged owner-supplied sw.js to public/sw.js: Next serves this at the
+website root /sw.js. No worker registration, permission prompt or push subscription
+was added. Its remote 3nbf4.com worker is a separate supplied configuration, not
+a repair for banner delivery.
+
+Files: components/ads/advertising.tsx, app/advertising/frame/route.ts,
+src/modules/ads/config.ts, src/content/model.ts, public/sw.js,
+tests/unit/ads.test.ts, scripts/test-ads-browser.mjs, docs/ADVERTISING.md and this log.
+Checks: focused ad unit tests 7/7 passed; npm run typecheck and npm run lint passed.
+Updated mocked browser expectations for Social Bar and banner cookie compatibility.
+Per the owner's request for a quick change, full tests/build/browser suites were
+not rerun. No live ad impressions or clicks generated during these checks.
