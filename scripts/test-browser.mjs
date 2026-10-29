@@ -50,7 +50,7 @@ try {
   assert.equal(await page.locator('.offer-row').count(),0);
   await page.screenshot({path:`${shots}/homepage-desktop.png`,fullPage:true});
   await checkAxe();
-  await page.getByRole('searchbox').fill('headphones');await page.getByRole('button',{name:'Search',exact:true}).click();
+  await page.getByRole('searchbox').fill('headphones');await page.getByRole('button',{name:/^(Search|Find offers)$/}).click();
   await page.waitForURL('**/search?q=headphones');
   assert.equal(await page.locator('.offer-row').count(),0);
   await visit('/offers/demo-audio-code');assert.ok(await page.getByRole('heading',{name:'That page is not available.'}).isVisible());
@@ -88,7 +88,7 @@ try {
     await page.getByRole('link',{name:'Next',exact:true}).click();await page.getByText('Page 3 of 3',{exact:true}).waitFor();assert.equal(await page.locator('.offer-row').count(),1);
     await page.locator('select[name="category"]').selectOption('audio');await page.locator('select[name="kind"]').selectOption('AUTOMATIC');await page.getByRole('button',{name:'Apply filters'}).click();
     await page.waitForURL('**kind=AUTOMATIC**');await page.getByRole('heading',{name:'Demo: speaker price discount'}).waitFor();assert.equal(await page.locator('.offer-row').count(),1);assert.match(await page.locator('.offer-row').innerText(),/speaker/);
-    await visit('/preview');await page.getByRole('searchbox').fill('headphones');await page.getByRole('button',{name:'Search',exact:true}).click();await page.waitForURL('**q=headphones');assert.equal(await page.locator('.offer-row').count(),1);
+    await visit('/preview');await page.getByRole('searchbox').fill('headphones');await page.getByRole('button',{name:/^(Search|Find offers)$/}).click();await page.waitForURL('**q=headphones');assert.equal(await page.locator('.offer-row').count(),1);
     await page.getByRole('link',{name:'View details',exact:true}).click();await page.getByRole('button',{name:'Reveal & copy code',exact:true}).click();
     await page.getByRole('button',{name:'Copied',exact:true}).waitFor();assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'DEMOAUDIO');
     await page.screenshot({path:`${shots}/offer-preview-desktop.png`,fullPage:true});await checkAxe();

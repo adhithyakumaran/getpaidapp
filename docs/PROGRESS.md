@@ -709,3 +709,19 @@ The owner explicitly requested committing and pushing all completed application
 work to the existing `origin` GitHub repository on `main`. Remote state was
 fetched and matched local HEAD before committing. No deployment is part of this
 push; the existing CI workflow performs checks and has no deployment job.
+
+## Homepage offer-focused wording (2026-10-29)
+
+Changed the hero to **Find offers. Shop smarter.**, with **Explore coupon codes
+and discounts from your favourite brands.** The primary search CTA now says
+**Find offers** on the hero; other search forms retain Search. The adjacent
+brand ticket now says **Your brands. Your next deal.** No savings, verification
+or popularity claims were invented and existing conditions remain visible.
+Updated browser selectors for both valid search labels.
+
+TypeScript, lint and build passed. Read-only live browser checks verified the
+new copy and CTA at320/375/1440, no horizontal overflow, mobile/desktop axe with
+zero violations and a working Myntra search returning19 real supplied listings.
+Screenshots: docs/screenshots/hero-offers-375.png and hero-offers-1440.png.
+No database, collector, indexing or deployment changes. Committed and pushed
+under the owner's standing GitHub-delivery instruction.
