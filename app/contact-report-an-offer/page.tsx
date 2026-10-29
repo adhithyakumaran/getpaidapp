@@ -1,0 +1,4 @@
+import {ReportForm} from '@/components/content/report-form';
+import {CONTACT_EMAIL,CONTACT_PHONE,pageMetadata} from '@/src/modules/seo/config';
+export const metadata=pageMetadata('Contact & report a coupon','Contact the site operator or prepare a report about an incorrect or expired coupon.','/contact-report-an-offer');
+export default function ContactPage(){return <section className="shell editorial-page"><h1>Contact & report an offer</h1><p className="article-summary">Found a missing condition, a failed code or a broken link? Tell the site operator what happened.</p><div className="contact-methods"><div><h2>Email</h2><a href={'mailto:'+CONTACT_EMAIL}>{CONTACT_EMAIL}</a></div><div><h2>Phone</h2><a href={'tel:'+CONTACT_PHONE}>99659 85951</a></div></div><h2>Prepare a coupon report</h2><p>This tool prepares an email in your mail app. Nothing is sent automatically, and sending a report does not guarantee an immediate recheck or removal.</p><ReportForm/></section>;}

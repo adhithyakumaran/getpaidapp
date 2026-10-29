@@ -1,0 +1,34 @@
+﻿name: Foundation checks
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Generate isolated CI credentials
+        run: |
+          node --input-type=module <<'JS'
+          import { randomBytes } from 'node:crypto';
+          import { writeFileSync } from 'node:fs';
+          const dev = randomBytes(24).toString('hex');
+          const test = randomBytes(24).toString('hex');
+          writeFileSync('.env.local', `POSTGRES_PASSWORD=${dev}\nDATABASE_URL=postgresql://coupon_dev:${dev}@localhost:5432/coupon_development\nTEST_POSTGRES_PASSWORD=${test}\nTEST_DATABASE_URL=postgresql://coupon_test:${test}@localhost:55433/coupon_integration\n`, {mode:0o600});
+          JS
+      - run: docker compose --env-file .env.local --profile test up -d --wait
+      - run: npm run db:migrate
+      - run: npm run db:migrate
+      - run: npm test
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: npm run test:browser:production
+      - if: always()
+        run: docker compose --env-file .env.local --profile test down

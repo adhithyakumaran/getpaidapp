@@ -3,6 +3,10 @@
 Use PostgreSQL 17 from the first persistence task. Development, integration
 tests, CI, staging and production use the same engine and ordered migrations.
 The numbered tasks are engineering checkpoints toward one production product.
+
+Hosted staging/production will use **Neon PostgreSQL 17**. The current database
+is local; no hosted connection or data migration was made. See [NEON.md](NEON.md)
+for separate roles/databases, verified TLS and missing provisioning requirements.
 There is no temporary database engine or later conversion project.
 
 ## Development setup
@@ -94,12 +98,117 @@ Production readiness requires the complete pipeline, admin authorization,
 publication policy and scheduled worker checks in AGENT-STEPS.md. Database choice
 alone does not establish that the system is deployed or production ready.
 
-## Current validation status
+## Implemented Phase 1 workflow
 
-The Docker daemon is available. Compose configuration validation passed using
-a temporary non-secret interpolation value; no database was started. To validate
-your actual local configuration, run
-`docker compose --env-file .env.local config --quiet` after securely supplying
-the required password. No database password has been requested in chat or saved
-in tracked files. PostgreSQL has not been provisioned, the SQL example has not
-been executed against PostgreSQL, and application persistence remains Phase 1 work.
+The driver is pinned `pg`; schemas use pinned Zod 4, tests pinned Vitest 4, and
+the migration CLI runs with pinned tsx. There is one SQL migration history under
+`src/modules/database/migrations/`. The runner holds a PostgreSQL advisory
+transaction lock, verifies engine major 17 and the applied filename/checksum
+prefix, and commits DDL with its ledger entries atomically. Edited or removed
+applied migrations fail. Add a new ordered `NNNN_description.sql` migration;
+never edit one after it has been applied. No down/reset command is shipped for
+application databases. The runner never runs implicitly during web startup.
+
+Generate two independent random passwords securely, copy `.env.example` to
+`.env.local`, and fill both connection URLs. Do not use the same password for
+development and tests. Example endpoint shapes (passwords must be URL encoded):
+
+- Development: `postgresql://coupon_dev:<password>@localhost:5432/coupon_development`
+- Test: `postgresql://coupon_test:<different-password>@localhost:55433/coupon_integration`
+
+```sh
+docker compose --env-file .env.local --profile test up -d --wait db test-db
+npm run db:migrate
+npm run db:migrate
+npm test
+npm run test:integration
+npm run typecheck
+npm run lint
+npm run build
+```
+
+`db` uses a persistent named volume; `test-db` has a separate ephemeral tmpfs.
+The test bootstrap creates `coupon_test` with NOSUPERUSER, NOCREATEDB and
+NOCREATEROLE, owning only `coupon_integration`. Its bootstrap password is test-only.
+Test setup permits only the exact localhost/127.0.0.1, 55433 (local Compose) or
+5432 (CI native service), coupon_integration, coupon_test destination tuple.
+It also queries the real connected database/user and rejects privileged roles
+before dropping the disposable public schema. The application database must
+have a different name. This is deliberately stricter than a name containing test.
+The tests reset that schema; never place persistent data in the test service.
+Stop with `docker compose --env-file .env.local --profile test stop`; remove the
+test container to reinitialize its ephemeral data. Do not delete the dev volume.
+If 55433 is busy, free it or deliberately update both the safety allowlist and
+configuration; merely changing an environment variable does not expand the allowlist.
+
+Standalone commands explicitly load `.env.local` using Node 24's loadEnvFile;
+already supplied environment bindings take precedence. They do not import Next.js.
+Migrations prefer MIGRATION_DATABASE_URL and fall back to DATABASE_URL for local
+bootstrap. Application pools use DATABASE_URL. Test pools use only TEST_DATABASE_URL.
+URLs and credentials are omitted from CLI failure output; use secure operator
+PostgreSQL diagnostics for detail. Pool size is five, acquisition 5 seconds,
+idle 10 seconds, statement 15 seconds, lock 5 seconds; sessions use UTC.
+Remote URLs require sslmode=verify-full and a trusted CA (provider SSL root
+configuration as needed); never pass a setting that disables certificate checks.
+
+Repositories accept a checked-out transaction client. SQL is parameterized.
+Money BIGINT values cross the read boundary through a safe-range converter;
+unknown values remain null and instants serialize to UTC ISO strings.
+Keep fetches outside transactions. The lease primitive increments durable tokens
+on takeover; assertLease locks the ownership row before writes. The future worker
+must call it within each short write transaction. This phase tests those primitives;
+it does not implement the reconciliation or heartbeat/scheduler workflow.
+
+Identity, evidence and publication are separate: stores/categories, offers,
+source listings, raw/normalized observations, source permissions, run counts/errors,
+verification history, source leases, duplicate reviews, audit records and an outbox.
+Historical observations retain their offer ID after a listing is relinked.
+There is no unique constraint on codes or titles and no automatic commercial
+matching. Source claims cannot become independent verification through that method.
+Publication policy, duplicate resolution, audit-writing services and outbox delivery
+are later steps. Fixture offers remain DRAFT and no live sources are seeded.
+
+## Environment and deployment contract
+
+CI generates new independent credentials for each job and starts the same
+PostgreSQL 17 Compose services. `.github/workflows/ci.yml` installs the lockfile,
+runs the migration twice, real integration tests, TypeScript, lint and build.
+Hosted CI execution is separate from local verification.
+
+Staging and production must each provision their own database, migration role,
+application role and secret bindings. Suggested identities:
+
+| Environment | Database | Migration role | Application role |
+| --- | --- | --- | --- |
+| staging | coupon_staging | coupon_staging_migrator | coupon_staging_app |
+| production | coupon_production | coupon_production_migrator | coupon_production_app |
+
+Never reuse local or CI passwords. Bind MIGRATION_DATABASE_URL only to the
+controlled deployment migration job, DATABASE_URL to the application/worker,
+and no TEST_DATABASE_URL on either host. Both run the same checked-in migrations
+against PostgreSQL 17. A migration credential owns its database/schema; an app
+credential has CONNECT, schema USAGE, and required table SELECT/INSERT/UPDATE
+privileges without schema CREATE, role management or superuser privileges.
+Grant default privileges as the migrator so future migration tables remain
+accessible; exclude the migration ledger from application writes. Grant DELETE
+only if a later audited retention implementation requires it. Configure and
+verify these grants on the chosen host before launch.
+
+No staging or production host/secret store has been supplied. No remote database,
+credential or deployment was fabricated or provisioned in this engineering step.
+The existing backup, restore, pooling and monitoring requirements above remain
+launch prerequisites. See PROGRESS.md for commands actually executed locally.
+
+## Phase 2 collector commands
+
+`npm run db:migrate -- --test` uses the same non-destructive migration runner,
+with the exact disposable database/role allowlist shared by integration tests
+and fixture collection. It does not reset the schema. Tests remain the only
+commands that reset their dedicated disposable schema.
+
+`npm run collect -- --source amazon-in-promotions --fixture` never uses
+DATABASE_URL and never calls the network. It writes labelled synthetic source
+listings, observations and run records to TEST_DATABASE_URL. The corresponding
+live command uses DATABASE_URL but currently records SOURCE_NOT_APPROVED before
+any HTTP request. See SOURCES.md for the external access and reuse blockers.
+Phase 2 requires no new SQL migration: it reuses the Phase 1 ledger and tables.

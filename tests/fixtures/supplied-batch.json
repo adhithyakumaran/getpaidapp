@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "batchId": "synthetic-example-001",
+  "supplierId": "example-owner",
+  "supplierName": "Synthetic import example — not a real promotion",
+  "suppliedAt": "2026-10-29T08:00:00Z",
+  "synthetic": true,
+  "approval": null,
+  "coupons": [{
+    "externalId": "synthetic-audio-001",
+    "category": "audio",
+    "originalUrl": "https://www.amazon.in/dp/B000FAKE01",
+    "evidenceReference": "Hand-authored synthetic test input; no real offer evidence",
+    "approved": false,
+    "terms": {
+      "retailerId": "amazon-india",
+      "title": "Synthetic import example: audio coupon",
+      "kind": "CODE",
+      "code": "SYNTHETICIMPORT",
+      "discountType": "PERCENTAGE",
+      "discountBps": 1000,
+      "currency": "INR"
+    }
+  }]
+}

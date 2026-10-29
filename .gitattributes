@@ -1,0 +1,3 @@
+# Preserve exact SQL bytes for migration checksums across operating systems.
+src/modules/database/migrations/*.sql -text
+scripts/*.sh text eol=lf

@@ -1,0 +1,112 @@
+[
+  {
+    "shape": "app screen",
+    "scope": "app",
+    "theme": "custom",
+    "axes": [
+      "light",
+      "grotesk-sans",
+      "chromatic-blue"
+    ],
+    "hero": "brand search and conditions ticket",
+    "nav": "compact catalogue masthead",
+    "footer": "directory colophon",
+    "imagery": "21 actual website icons and 2 official brand images",
+    "photos": [],
+    "entry": "supplied CSV brand catalogue",
+    "fingerprint": "white-black-blue-lime-rethink-multibrand-tickets",
+    "sections": [
+      "search",
+      "brand directory",
+      "masked offer tickets",
+      "conditions",
+      "source attribution"
+    ],
+    "signature": "perforated coupon tickets with reveal-and-copy",
+    "waived": [
+      "7b: owner requested white",
+      "49b: content links wrap without truncation"
+    ],
+    "prompt": "Owner-supplied CSV coupons with actual brand logos/images, ticket shapes, masked reveal/copy codes and restrained visible input focus",
+    "review": {
+      "mode": "subagent",
+      "verdict": "fix",
+      "findings": 2,
+      "resolved": 2,
+      "rescored": "reviewer confirmed both resolved"
+    },
+    "checks": {
+      "floorFails": 0,
+      "openReflex": 0,
+      "warnings": [
+        "25: short footer caption measure retained"
+      ]
+    },
+    "date": "2026-10-29",
+    "mode": "build"
+  },
+  {
+    "shape": "app screen",
+    "theme": "custom",
+    "axes": [
+      "light",
+      "grotesk-sans",
+      "chromatic-blue"
+    ],
+    "hero": "conditions-first search",
+    "nav": "compact catalogue masthead",
+    "footer": "directory colophon",
+    "imagery": "code-native coupon interface",
+    "photos": [],
+    "entry": "home/store/detail",
+    "fingerprint": "white-black-blue-lime-rethink-ticket",
+    "sections": [
+      "search",
+      "store directory",
+      "offer comparison",
+      "conditions",
+      "source and freshness"
+    ],
+    "signature": "perforated cut-corner offer ticket",
+    "waived": [
+      "7b: owner requested pure white",
+      "49b: full offer titles wrap as content links"
+    ],
+    "prompt": "Coupon frontend with white black blue lime token/ticket shapes; honest empty public catalogue and development-only fixtures",
+    "review": {
+      "mode": "subagent",
+      "verdict": "ship",
+      "findings": 3,
+      "resolved": 3
+    },
+    "checks": {
+      "floorFails": 0,
+      "openReflex": 0,
+      "warnings": [
+        "25: short footer caption intentionally 31–35ch"
+      ]
+    },
+    "date": "2026-10-29",
+    "mode": "build"
+  },
+  {
+    "date": "2026-10-29",
+    "mode": "requested refinement",
+    "scope": "app",
+    "idea": "seven circular-cut offer tickets with quiet coloured paper and useful editorial links",
+    "checks": {
+      "floorFails": 0,
+      "openReflex": 0,
+      "screenshots": 20,
+      "warnings": [
+        "25: short footer caption intentionally31�35ch"
+      ],
+      "finishReview": "subagent: fix, one finish finding resolved; current-guide self recommendation excluded"
+    },
+    "performance": {
+      "beforeMedianMs": 1495,
+      "afterMedianMs": 295,
+      "samples": 5
+    }
+  }
+]

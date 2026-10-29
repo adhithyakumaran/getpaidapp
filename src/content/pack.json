@@ -1,0 +1,211 @@
+{
+  "categories": [
+    {
+      "slug": "fashion-coupons",
+      "title": "Fashion Coupons & Clothing Deals",
+      "intro": "Looking for a better price on clothing, footwear or accessories? Browse fashion coupon codes and sale offers in one place. Before applying a code, check whether it is limited to new users, selected products, app orders or a minimum cart value.",
+      "checklist": [
+        "Compare the final price after discounts, not just the advertised percentage.",
+        "Check size, return and exchange conditions before ordering.",
+        "Look for bank or wallet offers only if you meet the payment eligibility rules.",
+        "Confirm whether the coupon applies to sale items or only full-price products."
+      ]
+    },
+    {
+      "slug": "beauty-coupons",
+      "title": "Beauty Coupons & Skincare Offers",
+      "intro": "Explore offers on beauty, skincare, haircare, fragrance and personal-care products. Coupon eligibility can differ by brand, product range, order value and customer status, so read the offer conditions before checkout.",
+      "checklist": [
+        "Check whether the code applies to the exact brand and product in your cart.",
+        "Compare pack sizes and unit prices when evaluating a deal.",
+        "Review ingredient lists and product suitability rather than choosing only by discount.",
+        "Check expiry dates and return policies for beauty products."
+      ]
+    },
+    {
+      "slug": "grocery-coupons",
+      "title": "Grocery Coupons & Quick-Commerce Offers",
+      "intro": "Find listed offers for groceries and quick-commerce orders. Grocery promotions may depend on delivery location, account history, basket value, payment method or selected items. Availability and delivery fees can vary by pin code.",
+      "checklist": [
+        "Enter your delivery pin code before comparing offers.",
+        "Check minimum basket value and excluded products.",
+        "Compare the final bill after delivery, handling and platform fees.",
+        "Treat cashback as conditional until the provider confirms it."
+      ]
+    },
+    {
+      "slug": "food-delivery-coupons",
+      "title": "Food Delivery Coupons & Restaurant Offers",
+      "intro": "Browse food delivery coupon listings and restaurant offers. Promotions can be restaurant-specific, location-specific, time-limited or restricted to certain payment methods. Confirm the discount on the final order summary.",
+      "checklist": [
+        "Check the restaurant, delivery area and minimum order amount.",
+        "Review platform, packaging and delivery charges alongside the discount.",
+        "Check whether the offer can be combined with other promotions.",
+        "Do not assume a coupon works for every restaurant or account."
+      ]
+    },
+    {
+      "slug": "electronics-deals",
+      "title": "Electronics Deals & Shopping Offers",
+      "intro": "Compare listed deals on phones, computers, accessories and home electronics. The best offer depends on the final price, warranty, seller, return policy and payment conditions—not only the headline discount.",
+      "checklist": [
+        "Compare the exact model number and configuration.",
+        "Check seller identity, warranty coverage and return conditions.",
+        "Read bank-offer terms, including card type, EMI rules and maximum discount.",
+        "Compare the final payable amount after delivery and other charges."
+      ]
+    },
+    {
+      "slug": "travel-coupons",
+      "title": "Travel Coupons & Booking Offers",
+      "intro": "Explore listed travel discounts for eligible bookings. Travel promotions may vary by route, travel date, fare type, account, payment method and booking platform. Recheck the final fare and cancellation terms before paying.",
+      "checklist": [
+        "Compare the total price including convenience or service fees.",
+        "Check whether the offer applies to your route and travel dates.",
+        "Read cancellation, rescheduling and refund conditions.",
+        "Verify bank and wallet offer exclusions before payment."
+      ]
+    },
+    {
+      "slug": "home-living-deals",
+      "title": "Home & Living Coupons",
+      "intro": "Find listed offers for home essentials, furnishings, kitchen products and décor. Before ordering, compare product dimensions, material details, delivery costs and return conditions along with the discount.",
+      "checklist": [
+        "Measure your space and check product dimensions.",
+        "Review delivery and installation charges if applicable.",
+        "Check whether bulky or sale items are excluded from returns.",
+        "Compare the final price across equivalent products."
+      ]
+    },
+    {
+      "slug": "bank-offers",
+      "title": "Bank Offers & Payment Discounts",
+      "intro": "Bank and payment offers can reduce the final price when the transaction meets specific conditions. Eligibility may depend on the issuing bank, card network, credit or debit card type, EMI selection, minimum spend and maximum discount.",
+      "checklist": [
+        "Read the full offer terms before selecting a payment method.",
+        "Check the minimum transaction value and maximum discount cap.",
+        "Confirm whether EMI, corporate, prepaid or certain card variants are excluded.",
+        "Check whether the offer is instant discount or cashback, and when cashback is credited."
+      ]
+    }
+  ],
+  "guides": [
+    {
+      "slug": "how-to-use-coupon-codes-india",
+      "title": "How to Use Coupon Codes When Shopping Online in India",
+      "excerpt": "A simple checklist for applying promo codes and confirming that the discount is reflected in your order total.",
+      "body": "## How to apply a coupon code\n\n1. Choose the product you want and add it to your cart.\n2. Open the cart or checkout page and look for a field labelled coupon, promo code, discount code or offer code.\n3. Copy the code from the offer listing and paste it exactly as shown.\n4. Apply the code and wait for the order summary to refresh.\n5. Check the discount line and final payable amount before paying.\n\n## Read the conditions first\n\nA code may require a minimum cart value, a first purchase, a specific product category, an app order or a particular payment method. Some codes exclude sale items or selected brands. If the conditions are not met, the store may reject the code or show no discount.\n\n## If the code does not work\n\nCheck spelling, expiry information, minimum spend, product eligibility, account eligibility and payment conditions. Remove excluded products or try a different eligible payment method only if the offer terms allow it. Do not complete the purchase based on the advertised discount unless the final checkout total reflects it.\n\n## A useful rule\n\nCompare the final payable amount, including delivery and platform fees. A large percentage discount is not automatically the cheapest deal."
+    },
+    {
+      "slug": "why-coupon-code-not-working",
+      "title": "Why Is My Coupon Code Not Working?",
+      "excerpt": "Common reasons a promo code is rejected and what to check before giving up on the offer.",
+      "body": "## Common reasons\n\n- **Expired offer:** The source listing or merchant promotion may have ended.\n- **Minimum order value:** Your eligible cart total may be below the required amount.\n- **New-user restriction:** The code may be limited to first-time customers or first orders.\n- **Product exclusions:** Selected brands, sale items, gift cards or certain categories may not qualify.\n- **Payment restriction:** The offer may require a specific bank card, wallet or EMI option.\n- **App-only offer:** The code may work only in the merchant's mobile app.\n- **Account or location restriction:** Some promotions are targeted or available only in certain service areas.\n- **Usage limit:** A limited-use code may have reached its redemption cap.\n\n## What to do\n\nRead the full terms, check the cart total and confirm that the items qualify. Recheck the offer on the merchant's website or app. If it still fails, do not assume the code is valid just because a coupon site lists it.\n\n## Reporting a failed code\n\nIf this website provides a report button, share the merchant, code, approximate time and the type of restriction shown. Do not submit passwords, full card numbers, OTPs or other sensitive information."
+    },
+    {
+      "slug": "coupon-vs-cashback-vs-bank-offer",
+      "title": "Coupon vs Cashback vs Bank Offer: What's the Difference?",
+      "excerpt": "Understand three common types of online shopping promotions and how to compare their real value.",
+      "body": "## Coupon code\n\nA coupon code is entered during checkout. If accepted, it may reduce the cart price immediately or unlock a specific promotion. It can have product, account or order-value restrictions.\n\n## Instant bank discount\n\nAn instant bank offer usually requires an eligible card or payment method. The discount may appear during payment or in the order summary. Check the bank, card type, minimum spend, discount cap and EMI conditions.\n\n## Cashback\n\nCashback is usually credited after a qualifying transaction, sometimes to a wallet, bank account or rewards balance. It may have a waiting period, exclusions or additional conditions. Treat it as conditional until the provider confirms the reward.\n\n## How to compare them\n\nCompare the final amount you pay now, any later cashback you are genuinely eligible to receive, and any extra fees. Do not add multiple discounts together unless the terms explicitly allow stacking."
+    },
+    {
+      "slug": "how-to-compare-online-deals",
+      "title": "How to Compare Online Deals Beyond the Discount Percentage",
+      "excerpt": "A practical way to identify the better offer without being distracted by headline percentages.",
+      "body": "## Compare the final payable amount\n\nStart with the same product, model, size or pack quantity. Add delivery, platform, handling and convenience fees. Then apply only the offers you qualify for.\n\n## Check the seller and product details\n\nFor electronics, confirm the model number, warranty and seller. For fashion, review size and return terms. For groceries, compare quantity and unit price. For travel, include fees and cancellation conditions.\n\n## Understand the discount cap\n\nAn offer advertised as a percentage off may have a maximum discount. For example, a hypothetical 20% offer capped at ₹200 cannot reduce an eligible purchase by more than ₹200.\n\n## Be cautious with urgency\n\nA countdown or 'limited time' label is not proof that a deal is good. Check the stated expiry, compare alternatives and buy only if the product meets your needs."
+    },
+    {
+      "slug": "new-user-coupons-explained",
+      "title": "New-User Coupons: Eligibility, Restrictions and Tips",
+      "excerpt": "What first-order promotions usually mean and why a new-user code might be rejected.",
+      "body": "## What is a new-user coupon?\n\nA new-user coupon is a promotion intended for eligible first-time customers or first orders. The merchant decides how eligibility is defined, and it may depend on the account, phone number, payment method, address or order history.\n\n## Before using one\n\nRead whether the promotion applies to the first order, first app order or a specific category. Check the minimum spend, maximum discount and expiry information. Some offers cannot be combined with other coupons.\n\n## Why it may fail\n\nThe merchant may not consider the account eligible, the cart may contain excluded products, or the promotion may no longer be available. A coupon listing alone cannot guarantee acceptance.\n\n## Shop responsibly\n\nDo not create duplicate accounts or provide false information to bypass a merchant's rules. Confirm the discount in the final checkout summary."
+    },
+    {
+      "slug": "online-shopping-safety-coupon-sites",
+      "title": "Online Shopping Safety: Using Coupon Websites Carefully",
+      "excerpt": "Simple checks to protect your account and payment information while looking for discounts.",
+      "body": "## Use trusted destinations\n\nWhen a coupon page sends you to a merchant, check the destination domain before signing in or paying. Be cautious of lookalike domains, unexpected downloads and pages that ask for unrelated personal information.\n\n## Never share authentication secrets\n\nA coupon does not require you to share an OTP, account password, full card details or UPI PIN with a coupon publisher. Enter payment details only on the legitimate payment or merchant flow you intended to use.\n\n## Check the actual offer\n\nRead the conditions and verify the discount in the merchant's checkout. Treat unverified listings as leads to investigate, not as a promise of savings.\n\n## Understand referral links\n\nSome deal websites may earn a commission when a visitor makes a qualifying purchase through a link. Clear disclosure helps users understand how the website may be funded."
+    },
+    {
+      "slug": "how-coupon-verification-works",
+      "title": "How We Collect and Label Coupon Offers",
+      "excerpt": "Learn what the status labels mean and why a listed code may still fail at checkout.",
+      "body": "## Source-listed\n\nThe offer was found on a source page. This does not prove that the merchant will accept it for every customer or cart.\n\n## Source rechecked\n\nThe source page was revisited and the offer was still listed there. This is not the same as testing the code at the merchant's checkout.\n\n## Checkout tested\n\nUse this label only when a real checkout test was completed and the test conditions were recorded. A test may apply only to a particular account, product, location, date or payment method.\n\n## User reported\n\nA visitor reported that an offer worked or failed. User reports are useful signals, but they may not apply to every shopper.\n\n## Expired or unknown\n\nMark an offer expired only when there is sufficient evidence that it ended. Use unknown when the current validity cannot be established. Offer terms can change, so shoppers should confirm the final discount at checkout.\n\n## Our commitment\n\nWe aim to preserve source links, record when information was collected or checked, avoid inventing eligibility details, and correct or hide offers when credible evidence shows they are outdated."
+    },
+    {
+      "slug": "festival-sale-shopping-checklist",
+      "title": "Festival Sale Shopping Checklist for India",
+      "excerpt": "Plan purchases around your needs and compare the total cost during major sale periods.",
+      "body": "## Before the sale\n\nMake a list of items you actually need, note the usual price where possible and decide your budget. For expensive items, record the exact model or specification you want.\n\n## During the sale\n\nCompare the same product across sellers, check seller reputation and warranty, and read the coupon conditions. Bank discounts may require a particular card or minimum spend. Check whether a discount applies to sale items.\n\n## Before paying\n\nReview the final order total, delivery charges, return policy, delivery estimate and any EMI costs. Keep the order confirmation and offer terms.\n\n## Avoid impulse purchases\n\nA discount saves money only if the purchase is worthwhile and within your budget. Do not buy an unnecessary item simply because the displayed percentage looks large."
+    }
+  ],
+  "faq": [
+    {
+      "q": "Are all coupon codes guaranteed to work?",
+      "a": "No. Offers can depend on account eligibility, products, location, order value and payment method. Check the status shown on the offer and confirm the discount at checkout."
+    },
+    {
+      "q": "What does source-listed mean?",
+      "a": "It means the offer was found on a source page. It has not necessarily been tested at the merchant's checkout."
+    },
+    {
+      "q": "Why does a code work for someone else but not for me?",
+      "a": "The merchant may apply account-specific, location-specific, product-specific or payment-specific conditions. Your cart may not meet the same eligibility rules."
+    },
+    {
+      "q": "Can I combine two coupon codes?",
+      "a": "Only if the merchant's terms allow it. Many promotions cannot be stacked with other coupons or selected bank offers."
+    },
+    {
+      "q": "Why is the discount different from the advertised amount?",
+      "a": "The promotion may have a maximum discount cap, eligible-item restrictions, exclusions or a minimum order value."
+    },
+    {
+      "q": "How often are offers updated?",
+      "a": "Show the actual collection or recheck timestamp stored for each offer. Do not promise a fixed update frequency unless the site reliably meets it."
+    },
+    {
+      "q": "How can I report an expired or failed coupon?",
+      "a": "Use the report option if available and provide the code and a short description of the issue. Never include passwords, OTPs, full card details or UPI PINs."
+    },
+    {
+      "q": "Does the website receive a commission?",
+      "a": "If the site uses affiliate or sponsored links, disclose that clearly. Do not claim affiliate relationships unless they are actually in place."
+    }
+  ],
+  "footerPages": [
+    {
+      "slug": "about",
+      "title": "About This Website",
+      "body": "We help shoppers discover coupon listings, sale offers and practical ways to compare prices across online stores in India. Our goal is to make offer conditions and source information easier to understand. A listing is not a guarantee of acceptance: merchants can change or restrict promotions at any time."
+    },
+    {
+      "slug": "contact-report-an-offer",
+      "title": "Contact Us & Report an Offer",
+      "body": "Found an expired offer, incorrect condition or broken destination? Send the merchant name, code or offer title, source page and a short explanation. Please do not send passwords, OTPs, UPI PINs or full payment-card details. Reports help us prioritise rechecks, but an individual report does not guarantee immediate removal."
+    },
+    {
+      "slug": "affiliate-disclosure",
+      "title": "Affiliate Disclosure",
+      "body": "If this website uses affiliate links, we may earn a commission when visitors make qualifying purchases through those links, at no additional cost to the visitor unless the offer terms state otherwise. Affiliate relationships should not determine whether an offer is labelled verified. Only publish this disclosure if it accurately reflects the site's actual monetisation."
+    },
+    {
+      "slug": "privacy-policy-placeholder",
+      "title": "Privacy Policy — Review Before Publishing",
+      "body": "Explain what data the site actually collects, why it is collected, how long it is retained, which service providers receive it, how users can contact the operator, and what choices users have. Replace this placeholder with a policy reviewed for the site's real analytics, cookies, accounts, forms and applicable legal requirements. Do not publish this generic text as a complete legal policy."
+    }
+  ],
+  "storeTemplate": {
+    "title_pattern": "{Store} Coupons & Offers",
+    "intro": "Browse coupon codes and offers listed for {Store}. Each offer may have different eligibility rules, including minimum order value, selected products, new-user restrictions, app-only use or payment-method requirements. Open the source details and confirm the discount in the store's checkout before completing your order.",
+    "sections": [
+      "Available coupon codes",
+      "Offers without a code",
+      "How to use a {Store} coupon",
+      "Why a code may not work",
+      "Offer sources and verification status"
+    ],
+    "implementation_note": "Use this as a template, not as a claim that every store currently has working coupons. Render only offers present in the database and show the actual verification status."
+  },
+  "updatedAt": "2026-10-29"
+}

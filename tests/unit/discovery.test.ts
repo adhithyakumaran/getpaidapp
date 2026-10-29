@@ -1,0 +1,11 @@
+import {describe,it,expect} from 'vitest';
+import {searchIntents,resolveSearchIntent} from '@/src/modules/catalogue/search-intent';
+import {parseCatalogueQuery,PAGE_SIZE} from '@/src/modules/catalogue/model';
+import {categoryPages,guides,faqs,trustPages} from '@/src/content/model';
+import {indexingEnabled,jsonLd,pageMetadata,CONTACT_EMAIL,CONTACT_PHONE} from '@/src/modules/seo/config';
+describe('discovery and editorial safety',()=>{
+ it('maps 147 distinct intent phrases to real merchant routes without doorway pages',()=>{expect(searchIntents).toHaveLength(147);expect(new Set(searchIntents.map(i=>i.phrase)).size).toBe(147);for(const intent of searchIntents)expect(intent.path).toBe('/stores/'+intent.store);});
+ it('resolves misspellings and category intent while preserving actual coupon codes',()=>{expect(resolveSearchIntent(parseCatalogueQuery({q:'mynntra cupon discount'}))).toMatchObject({store:'myntra',q:''});expect(resolveSearchIntent(parseCatalogueQuery({q:'amzon electronics discount coupons'}))).toMatchObject({store:'amazon-india',category:'electronics',q:''});expect(resolveSearchIntent(parseCatalogueQuery({q:'MYNTRA300'}))).toMatchObject({store:'all',q:'myntra300'});expect(resolveSearchIntent(parseCatalogueQuery({q:'free coupons'})).q).toBe('');expect(PAGE_SIZE).toBe(7);});
+ it('validates the supplied content and keeps routes unique',()=>{expect(categoryPages).toHaveLength(8);expect(guides).toHaveLength(8);expect(faqs).toHaveLength(8);const slugs=[...categoryPages,...guides,...trustPages].map(p=>p.slug);expect(new Set(slugs).size).toBe(slugs.length);for(const c of categoryPages)for(const related of c.guides)expect(guides.some(g=>g.slug===related)).toBe(true);});
+ it('requires an explicit production indexing flag and escapes embedded JSON',()=>{expect(indexingEnabled({NODE_ENV:'development',PUBLIC_INDEXING_ENABLED:'1'})).toBe(false);expect(indexingEnabled({NODE_ENV:'production'})).toBe(false);expect(indexingEnabled({NODE_ENV:'production',PUBLIC_INDEXING_ENABLED:'1'})).toBe(true);expect(jsonLd({x:'</script>'})).not.toContain('<');expect(pageMetadata('Title','Description','/guides').alternates?.canonical).toBe('https://getpaid.co.in/guides');expect(CONTACT_EMAIL).toBe('adhithyakumaran2005@gmail.com');expect(CONTACT_PHONE).toBe('+919965985951');});
+});

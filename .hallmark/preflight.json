@@ -1,0 +1,22 @@
+{
+  "scanned": "2026-10-29",
+  "findings": {
+    "framework": "Next.js 16.4.3 App Router",
+    "fonts": "self-hosted Rethink Sans",
+    "palette": "white black blue lime by owner",
+    "material": "112 owner-supplied CSV candidates; 85 public claims; 27 withheld; actual website images"
+  },
+  "preserve": [
+    "PostgreSQL 17",
+    "noindex",
+    "isolated collectors",
+    "ticket design tokens"
+  ],
+  "introduce": [
+    "Neon connection",
+    "audited supplied-data import",
+    "multi-brand catalogue",
+    "masked reveal/copy",
+    "real brand images"
+  ]
+}

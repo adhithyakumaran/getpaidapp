@@ -1,5 +1,258 @@
 # Implementation progress
 
+## Neon connection, supplied coupon importing and brand/ticket refinement (2026-10-29)
+
+Completed the owner's supplied-data workflow and subsequent CSV/design request.
+The application is running locally at http://localhost:3000, connected to Neon
+PostgreSQL 17. Regular pages show **85 owner-supplied, source-listed coupons**;
+**27 ambiguous merchant rows are withheld privately**. The development-only
+`/preview` remains a separate synthetic demonstration. No public website host or
+deployment has been configured; noindex and crawl restrictions remain in place.
+
+### Database and data actually applied
+
+- Inspected only safe configuration classifications. The first supplied Neon
+  endpoint was PostgreSQL 18: queried its version and left it unchanged. The owner
+  then supplied a separate PostgreSQL 17 endpoint securely in ignored `.env.local`.
+- Changed its TLS binding to `sslmode=verify-full`. Verified the actual client
+  TLS socket is encrypted and certificate-authorized, direct endpoint, server
+  major 17 and UTC. No URLs, passwords or role identities were printed/committed.
+- Applied the existing foundation and additive `0002_supplied_imports.sql`, then
+  `0003_multibrand_candidates.sql`. Final migration runs applied **0, 0** changes.
+  Existing SQL migration bytes/history were preserved. No application/hosted
+  database reset, deletion, conversion or copying of existing data occurred.
+  Automated integration resets remain limited to the allowlisted disposable test
+  schema, using its independent restricted PostgreSQL 17 credential.
+- `MIGRATION_DATABASE_URL` is unset: the authorized migration used the supplied
+  credential. Separate least-privilege web/import/migration roles, staging and
+  production databases/credentials, hosting secrets and backup/restore checks
+  remain pre-deployment requirements. See NEON.md and IMPORTING.md.
+- The exact user-supplied file `india_coupon_codes_2026-10-29.csv` contains 112
+  candidates. Dry run: created/publishable 85, withheld 27. Apply: created 85,
+  published 85, existing 0, withheld 27. Replay: **created 0, published 0, existing
+  85, replayed true**. Read-only Neon counts confirmed 1 applied batch, 85 supplied
+  offers, 85 published offers and 27 private candidates.
+
+The CSV is operator-supplied data, not instructions and not a collector access
+grant. Known merchant aliases are explicit; generic food/grocery/electronics
+labels and unidentified bundles are not guessed. Dates without an exact expiry
+instant and mixed commercial wording remain source claims with nullable structured
+values. Original conditions, source URLs, raw cells, file hashes and private
+approval/provenance are retained. No coupon was invented or marked checkout-tested.
+
+### Implementation and changed files
+
+- `src/modules/imports/{schema,csv,service}.ts`: strict JSON/CSV validation,
+  2 MiB/500-row bounds, quoted/escaped/multiline CSV handling, explicit operator
+  approval, null preservation, merchant matching, conservative duplicate checks,
+  stable IDs and immutable content, replay conflicts, dry runs and atomic bulk
+  publication. Same-code coupons at different merchants remain distinct; uncertain
+  same-merchant candidates are rejected for review, never silently merged.
+- `scripts/{db-check,import-coupons}.ts`, package scripts: credential-safe connection
+  diagnostics and repeatable `npm run import:coupons -- --file <batch> [--apply]
+  [--publish] [--test]`. No page request imports or collects data. No HTTP import
+  endpoint or public administrative mutation was introduced.
+- `src/modules/database/migrations/000{2_supplied_imports,3_multibrand_candidates}.sql`:
+  batch/item provenance, audited supplied-offer approval, synthetic-data constraints
+  and private ambiguous candidates. Original foundation migration unchanged.
+- `database/{client,repository,catalogue-repository}.ts`: bulk repository insertion,
+  bounded transactional writes, sanitized disconnect handling, and explicit safe
+  supplied-data public projection. Automatic collection remains gated separately.
+  Published, approved, non-synthetic supplied records do not depend on an approved
+  collector source. Drafts, review conflicts and raw evidence remain excluded.
+- `catalogue/{brands,model,public.server}.ts`: 21 registered brands, broader categories,
+  approved display/link URL allowlist, store filtering and accurate supplied-versus-
+  observed freshness. A missing code discount is not called an automatic offer;
+  cashback is not labelled an immediate discount.
+- `components/catalogue/{brand-image,catalogue,chrome,copy-code}.tsx`,
+  `app/{page,globals}.tsx/css`, store routes and methodology: real brand images,
+  image banners, multi-brand navigation and directory, perforated coupon tickets,
+  masked codes, reveal/copy confirmation/manual fallback and smaller dark input
+  focus rings. No fake promotion artwork, popup or claim of working verification.
+- `public/brands/`: 21 actual website icons plus official Myntra and Rage Coffee
+  Open Graph brand images. `manifest.json` records website/asset URLs, hashes and
+  retrieval timestamps, including public favicon-cache fallbacks. No affiliation
+  or blanket asset reuse license is claimed; review brand requirements before
+  public deployment. Remote assets are stored locally, not fetched by page requests.
+- `tests/{unit/csv,unit/imports,unit/catalogue,integration/imports,integration/database}`,
+  `scripts/{test-browser.mjs,browser-import-fixture.ts}`: import/CLI, bulk rollback,
+  duplicate/replay/concurrency, private-candidate, brand filtering and UI checks.
+- README, design.md, `docs/{NEON,IMPORTING,SOURCES,PROGRESS}.md`, `.hallmark/` and
+  screenshots document the current workflow. No additional runtime dependency,
+  database engine or ORM was introduced. Existing pg/Zod/domain schemas are reused.
+
+### Actual corrections and checks
+
+The first row-by-row remote import lost its connection before commit. A separate
+read confirmed **0 batches/offers/candidates committed**. Replaced per-record remote
+round trips with validated bulk statements in one transaction; the retry and
+replay then succeeded. Connection-error listeners and rollback failure handling
+now keep connection loss credential-safe rather than emitting an unhandled stack.
+
+TypeScript caught an initial Zod pipeline variance issue; validation now reuses the
+domain refinements safely. Production browser seeding exposed malformed/empty URL
+handling in a URL refinement; corrected it and reran the suite. One existing CLI
+check timed out during concurrent development work; the final isolated checks
+passed. A live masking assertion initially matched the user's visible search term
+in the heading; it now checks the card value, and detail masking is checked separately.
+
+Fresh-context Hallmark review identified a mobile selector hiding the logo wrapper
+and a duplicate “Coupon code” caption. Both were fixed and recaptured. Removed the
+banner side stripe flagged by the sweep. The final rendered sweep has **0 Floor
+failures / 0 open Reflex findings**, with two reviewed short-footer-caption measure
+warnings retained; white surfaces and wrapping content links retain their justified
+waivers. Mobile card logos are visible in the refreshed capture.
+
+| Check | Actual result |
+| --- | --- |
+| `npm run db:check -- --neon` | Connected; direct Neon PostgreSQL 17, UTC, TLS encrypted and certificate verified |
+| Final Neon `npm run db:migrate` twice | Passed: 0 and 0 pending migrations |
+| Real CSV dry run/apply/replay | 85 accepted/published; 27 withheld; replay created/published 0 |
+| `npm test` | **89/89 passed**, 11 files, including **38 real PostgreSQL integration tests** |
+| `npm run typecheck` | Passed |
+| `npm run lint` | Passed |
+| `npm run build` | Passed, Next.js 16.4.3, including dynamic brand store routes |
+| Development browser suite | Passed search, filters, pagination, details, reveal/copy + clipboard fallback, automatic offers, stale/expired/loading/error states, keyboard menu/skip link and 8 viewport widths |
+| Production browser suite | Passed noindex/preview guard even with flag enabled; imported test records appeared after build without rebuilding, copied codes, withheld drafts/synthetic/private evidence |
+| Read-only real Neon browser check | Passed: 85 total / 19 Myntra; brand/category filtering, pagination, hidden-before-reveal code, clipboard copy, 27-row exclusion sample, loaded brand images, mobile/desktop |
+| axe WCAG A/AA | Zero violations on checked home/store/detail desktop/mobile screens, including actual supplied records |
+| Hallmark static + rendered | 0 FAIL, 0 open REFLEX; 15 rendered captures, 2 retained footer measure warnings |
+| Fresh-context review corrections | 2 findings resolved and recaptured |
+| `git diff --check` | Passed |
+
+Real Neon browser checks used only page reads and clipboard interaction, not
+database mutations or merchant checkout. Repeatable fixture browser writes are
+strictly confined to the disposable test database. Chromium/axe coverage is not
+a full screen-reader or cross-browser certification. Hosted CI has not run here.
+
+Actual screenshots: [home](screenshots/live-home-desktop.png),
+[home mobile](screenshots/live-home-mobile.png),
+[Myntra](screenshots/live-myntra-desktop.png),
+[Myntra mobile](screenshots/live-myntra-mobile.png),
+[masked offer](screenshots/live-offer-masked.png),
+[revealed offer](screenshots/live-offer-revealed.png),
+[offer mobile](screenshots/live-offer-mobile.png).
+
+**Remaining:** clarify the 27 ambiguous merchants before publishing those rows;
+independently confirm coupon eligibility/expiry/rights; choose a Node.js 24 website
+host/domain, provision separate staging/production credentials and restricted roles,
+bind server-only secrets, and complete backups/restore, monitoring and launch checks.
+No website deployment occurred. Automatic collection authorization, reconciliation,
+scheduling and administration remain separate future work; they do not block this
+explicit owner-supplied, unverified-claim workflow.
+
+## Frontend task: catalogue screens ahead of source authorization (2026-10-29)
+
+The owner explicitly authorized this frontend task before reconciliation, with
+a white/black/blue/lime palette and token/ticket shapes. Scope: homepage search,
+Amazon India electronics catalogue, offer details, responsive navigation/footer
+and meaningful interface states. No scheduler, global deduplication, admin,
+deployment or automatic publication was added.
+
+### Configuration and data boundaries
+
+Safely inspected DATABASE_URL and TEST_DATABASE_URL without printing credentials:
+both target **local PostgreSQL**. MIGRATION_DATABASE_URL is unset. Neon is the
+chosen future PostgreSQL 17 host for staging/production; no hosted provider was
+connected and no existing development data was migrated/deleted. `docs/NEON.md`
+records missing account/project/databases, independent restricted roles, secure
+bindings, verified TLS, backups and monitoring requirements. Existing SQL
+migration history is unchanged.
+
+Pages read the PostgreSQL repositories in a read-only transaction; they never
+collect, migrate or write. A literal closed publication gate prevents any public
+inventory until permitted live data and reconciliation controls exist. There is
+no environment/query override for that gate. Public lookup also excludes drafts,
+synthetic/missing provenance, unapproved or disabled sources, unsuccessful listings,
+unsafe merchant URLs and unresolved duplicate reviews on either side. Its explicit
+projection omits raw evidence, source claims of verification and private eligibility
+metadata. Search is parameterized, pagination bounded and ordering stable.
+
+Seven synthetic examples are created only by the server-only development preview
+module. `/preview` requires NODE_ENV=development and ENABLE_UI_PREVIEW=1; production
+returns 404 even if the flag is set. Every preview screen carries an invented-data
+notice. Preview redemption stays on a local explanation page. No preview fixtures
+are seeded into the application database. The fixed preview clock is 2026-10-29
+08:00 UTC; the older/expired examples are interface demonstrations, not live offers.
+
+### Changed files
+
+- `app/{layout,page,globals,tokens,base,error,not-found}` and routes under
+  `app/{search,stores/amazon-india,offers/[offerSlug],preview/[[...path]],methodology}`:
+  responsive catalogue, metadata/noindex, loading/empty/error/detail states.
+- `components/catalogue/{chrome,catalogue,copy-code,loading}.tsx`: navigation,
+  shared ticket/condition layouts, native GET search/filters, URL pagination,
+  copy confirmation/manual fallback, safe automatic-offer action and stale/expired
+  messaging. Missing commercial conditions remain “Not provided”; observed offers
+  are labelled unverified and never treated as checkout tested.
+- `src/modules/catalogue/{model,public.server,preview.server}.ts` and
+  `src/modules/database/{catalogue-repository,repository}.ts`: validated shopper
+  types, preview isolation, safe projection and existing-repository read path.
+- `tests/unit/catalogue.test.ts`, `tests/integration/catalogue.test.ts`:
+  validation, safe URLs, condition whitelisting, states, public readiness gate,
+  PostgreSQL exclusion/projection, literal search, filtering and pagination.
+- `scripts/test-browser.mjs`, `package.json`, lockfile and CI workflow: Playwright
+  interactions/screenshots and axe accessibility checks; dedicated test database
+  binding; production guard check. Added only `@axe-core/playwright` as a QA
+  dependency; no unrelated dependency upgrades.
+- `next.config.ts`: suppress the development indicator in review captures.
+  `eslint.config.mjs`/`vitest.config.mts`: ignore local skill tooling and limit
+  the test suite to project tests.
+- `public/fonts/{rethink-sans.ttf,OFL.txt}`, `design.md`, `.hallmark/`: self-hosted
+  licensed typeface, requested design tokens and recorded Hallmark review.
+- `.env.example`, README, `docs/{NEON,POSTGRESQL,PROGRESS}.md` and
+  `docs/screenshots/`: preview commands, hosting requirements and actual captures.
+
+### Validation and corrections
+
+The first new integration assertions accidentally put the intended eligible
+control offer on the other side of an unresolved duplicate review; the repository
+correctly excluded both sides. Corrected the test relationship to use another
+already hidden offer. Restricted Windows execution also prevented the tsx CLI
+test from reading OS user information (`uv_os_get_passwd`); rerunning outside that
+restricted token passed all tests without changing application behavior.
+
+Browser verification found and corrected navigation-wait assumptions in the test
+runner. Visual review found a squeezed mobile menu SVG, clipped monetary benefit
+and faint control borders. Fixed square-button padding/SVG sizing, monetary type
+and safe wrapping, and a 3:1+ control-border token. Hallmark rendering also found
+blue focus rings on the black footer; those now use lime. The independent finish
+review scored all three findings resolved and returned **ship**.
+
+| Check | Actual result |
+| --- | --- |
+| `npm test` | **74/74 passed**, 8 files; all existing 66 tests plus 8 catalogue tests |
+| Real PostgreSQL coverage | **30 integration tests passed**, including migrations/replay, constraints, transactions, collector and new catalogue policy tests |
+| `npm run typecheck` | Passed |
+| `npm run lint` | Passed, no application warnings |
+| `npm run build` | Passed, Next.js 16.4.3 |
+| Development browser interactions | Passed: search, category/type filters, pagination, details, clipboard success/fallback, automatic-offer preview, stale/expired/loading/error states |
+| Keyboard/mobile checks | Passed: menu open/Escape, skip link, focus; no horizontal overflow at 320, 375, 414, 768, 1024, 1280, 1440 and 1920px |
+| axe WCAG A/AA checks | Zero violations on home/store/detail at desktop and mobile sizes |
+| Production browser check | Passed: noindex, empty public results, public fixture slug rejected, previews blocked despite ENABLE_UI_PREVIEW=1 |
+| Hallmark static + rendered sweep | 0 Floor failures, 0 open Reflex findings; 15 rendered captures. White palette and wrapping content-title links explicitly waived; two short-footer measure warnings reviewed and retained |
+| Fresh-context design review | Ship; 3 findings, 3 resolved |
+| `git diff --check` | Passed (Git emitted line-ending normalization notices only) |
+
+Browser commands use a test-only DATABASE_URL override, a loopback server and
+owned-process cleanup. A temporary review server was also used for Hallmark
+captures and stopped after review. CI browser steps are configured but hosted CI
+has not been executed here. Automated axe checks are not a full screen-reader or
+cross-browser certification; browser execution used Chromium.
+
+Screenshots: [home desktop](screenshots/homepage-desktop.png),
+[home mobile](screenshots/homepage-mobile.png),
+[store desktop](screenshots/store-preview-desktop.png),
+[store mobile](screenshots/store-preview-mobile.png),
+[detail desktop](screenshots/offer-preview-desktop.png),
+[detail mobile](screenshots/offer-preview-mobile.png),
+[expired preview](screenshots/expired-preview.png).
+
+The frontend task is implemented. The public catalogue intentionally remains
+empty/noindexed. Live source authorization, daily reconciliation, deduplication,
+publication controls and Neon staging/production provisioning remain outstanding;
+fixture UI success does not establish live-source or production readiness.
+
 ## Completed: repository cleanup and handoff
 
 - Removed legacy calculator routes, components, freelance articles and branding.
@@ -36,3 +289,423 @@ Added development compose.yaml, credential-free .env.example and POSTGRESQL.md
 covering local setup, isolated real-database tests, CI, staging/production roles,
 TLS, pooling, migrations and recovery. Compose configuration and git diff checks
 passed. PostgreSQL was not started and the SQL example was not executed on it.
+
+## Phase 1: PostgreSQL domain and database foundation (29 October 2026)
+
+Implemented only the database foundation. The pre-launch placeholder and its
+noindex/crawl restrictions remain in place. No live source, collector, commercial
+matcher, admin UI, public API, scheduler or deployment was added.
+
+Changed files and choices:
+
+- `src/modules/domain/schemas.ts`: strict Zod schemas for offers/commercial terms,
+  permissions, observations, runs, listing identity, lifecycle/publication and
+  verification. Unknown conditions remain null; source claims stay separate.
+- `src/modules/normalize/money.ts`: exact decimal-token conversion using BigInt,
+  safe-range PostgreSQL BIGINT reads and null preservation.
+- `src/modules/database/{client,migrate,repository}.ts` and
+  `migrations/0001_foundation.sql`: bounded pg pools, UTC, transactions,
+  PostgreSQL 17 enforcement, advisory-locked checksum migration ledger,
+  repositories, replay constraints, provenance, history, immutable public slugs,
+  source leases/fencing, review/audit tables and a transactional outbox foundation.
+- `scripts/migrate.ts`, `scripts/init-test-db.sh`, `compose.yaml`, `.env.example`,
+  `.gitattributes`: explicit standalone env loading, persistent development DB,
+  separate ephemeral test service with restricted role, byte-stable migrations.
+- `tests/fixtures/offer.json`, `tests/unit/`, `tests/integration/`,
+  `vitest.config.mts`: synthetic fixtures only, real PostgreSQL tests and explicit
+  endpoint/database/role checks before disposable-schema reset.
+- `package.json`, `package-lock.json`: pinned pg 8.16.3, Zod 4.6.7,
+  Vitest 4.1.12, tsx 4.21.0 and pg types 8.15.6; Node 24 requirement;
+  migrate, test, integration and typecheck scripts.
+- `.github/workflows/ci.yml`, `README.md`, `docs/POSTGRESQL.md`: same PostgreSQL 17
+  migrations in CI and documented separate environment/database/role bindings.
+
+Local setup: generated independent random dev/test credentials in ignored
+`.env.local`; started PostgreSQL 17 development and disposable test services.
+Port 5433 was occupied, so the test service uses loopback port 55433. Development
+uses 5432 and a persistent volume. No populated volume was removed.
+
+Initial validation exposed a SQL UTF-8 BOM, causing the first migration and its
+dependent integration assertions to fail. Removed the BOM; the migration then
+applied once and repeated with zero changes. Subsequent tests passed (30/30 at
+that stage), as did TypeScript, lint and build. Final validation follows below.
+
+Dependency audit: upgraded the newly introduced Zod/Vitest versions to patched
+versions and applied compatible transitive fixes. The audit then reported one
+remaining critical package: existing Next.js 16.3.0. Its suggested update is
+16.4.3, outside the existing exact pin. Framework upgrade is deferred from this
+foundation step and remains a pre-launch security prerequisite.
+
+Limitations: no staging/production host or secret bindings were supplied, so
+those databases/roles were documented rather than provisioned. CI workflow is
+added but has not been run on hosted CI. Lease/outbox/review/audit persistence is
+foundation only; the collector's reconciliation, heartbeat, publication policy,
+admin authorization, event delivery and restore rehearsal remain later steps.
+
+
+### Final Phase 1 validation
+
+Executed locally with Node 24.21.0 and real PostgreSQL 17.11:
+
+| Check | Actual result |
+| --- | --- |
+| `npm ci --no-audit --no-fund` | Passed, clean lockfile install (413 packages) |
+| `docker compose --env-file .env.local --profile test up -d --wait db test-db` | Both services healthy |
+| `docker compose --env-file .env.local config --quiet` | Passed |
+| `npm run db:migrate` on fresh development DB | Passed, applied 1 migration |
+| Second migration and final repeat after clean install | Passed, applied 0 migrations |
+| Fresh/repeated/concurrent migrations in isolated integration DB | Passed |
+| Checksum tampering and failed-migration DDL/ledger rollback | Passed |
+| `npm test` on final files/dependencies | Passed: 33 tests across 3 files |
+| `npm run test:integration` | Passed: 19 real PostgreSQL tests |
+| `npm run typecheck` | Passed |
+| `npm run lint` on final files | Passed |
+| `npm run build` | Passed; homepage, not-found and robots generated |
+| Development database inspection | PostgreSQL 17.11, 1 migration, 0 offers |
+| `git diff --check` | Passed |
+
+The tests verify null preservation, exact paise and unsafe-range rejection,
+source approval, code requirements, dates, validation failures, SQL constraints,
+foreign keys including cross-source evidence, same-run observation/outbox replay,
+unchanged next-day fixture persistence, historical links after listing reuse,
+transaction rollback, recurring codes with distinct conditions and concurrent
+lease claims with stale-owner rejection. Configuration tests reject missing URLs,
+unverified remote TLS and non-allowlisted destructive test destinations.
+
+Renamed the Vitest config to `.mts` to use native ESM and remove its configuration
+warning. An intervening lint invocation raced that rename; the final lint run
+completed successfully after the filesystem changes finished. All final test,
+TypeScript, lint and build results above use the final dependency set.
+
+Phase 1 foundation acceptance checks are complete locally. Hosted CI execution,
+remote role provisioning and the existing framework advisory remain explicitly
+unverified/deferred as described above; this does not claim a production launch.
+
+## Security prerequisite for Phase 2 (29 October 2026)
+
+Resolved the Phase 1 critical advisory before collector implementation:
+`next` 16.3.0 -> 16.4.3, with matching `eslint-config-next` 16.4.3.
+Only those direct pins and their required lockfile dependencies changed for this fix.
+The existing React, database, Zod and test-tool pins remain unchanged.
+
+Confirmed the affected ranges and patched releases against maintainer advisories:
+[GHSA-673q-mjm6-r5xr](https://github.com/vercel/next.js/security/advisories/GHSA-673q-mjm6-r5xr)
+(cache typed-array RCE) and
+[GHSA-2464-fhr4-w9xw](https://github.com/vercel/next.js/security/advisories/GHSA-2464-fhr4-w9xw)
+(image optimization/upstream RCE), alongside the
+[16.4.3 release](https://github.com/vercel/next.js/releases/tag/v16.4.3).
+The installed version lies beyond the affected <=16.4.0 ranges and also covers
+older advisories affecting 16.3.0. Read the installed 16.4.3 upgrade documentation;
+AGENTS.md already points to the bundled version-matched docs.
+
+Before collector code changes: `npm test` passed all 33 existing tests against
+PostgreSQL; `npm run typecheck`, `npm run lint` and `npm run build` passed.
+`npm audit` passed with zero vulnerabilities. The earlier framework advisory
+limitation is resolved. This is not a production deployment.
+
+## Phase 2: first source adapter and manual collection (29 October 2026)
+
+Investigated all six specification candidates using primary terms/API documents;
+recorded evidence URLs, limitations, access/reuse prerequisites, attribution and
+request scope in `docs/SOURCES.md`. No candidate was granted live approval.
+GrabOn/GoPaisa restrict reuse/automation; CouponDunia's direct terms response was
+region-restricted; DesiDime's accessible merchant terms do not license the public
+catalogue; Zoutons does not establish a collection/republication entitlement.
+No accounts were created, no third parties contacted and no retail catalogue crawled.
+
+Selected a conditional official Amazon India seller Promotions API contract,
+2025-12-01. This is seller-scoped, not a public marketplace coupon feed. Live
+execution remains disabled until an authorized SP-API seller/app with Pricing
+or Product Listing access, a valid LWA access token, reviewed electronics ASINs,
+and explicit collection/retention/republication rights and attribution are supplied.
+The API model's licence is not permission to republish seller data. A token alone
+cannot bypass approval. No invented endpoint, permission grant or live success.
+
+Files introduced/changed for Phase 2 (in addition to the security pins above):
+
+- `src/modules/sources/contracts.ts`: adapter/context/result contracts and strict
+  listing/result validation using existing domain schemas.
+- `src/modules/sources/amazon-promotions.ts`: official response-contract extraction,
+  exact commercial normalization, original API URL, UTC collection/validity times,
+  raw JSON and SHA-256 evidence reference; pagination and partial/error outcomes.
+- `src/modules/sources/http.ts`: exact HTTPS destination/query allowlist, public-IP
+  checks, DNS pinning with normal TLS verification, credential-safe redirects,
+  response-size cap, cancellation/timeouts, serial request spacing, total request
+  budget and bounded retries/Retry-After handling.
+- `src/modules/sources/registry.ts`: source registration, adapter factory and
+  permission blocker; explicitly separate fixture registration.
+- `workers/collector/{cli,fixtures,run}.ts`: manual command, offline fixture
+  transport, PostgreSQL run records, unmatched listings and immutable evidence.
+  Fetching/extraction runs outside SQL transactions; persistence and run completion
+  commit together. A persistence rollback is followed by a separate failed-run record.
+- `src/modules/database/repository.ts`: source registration without overriding
+  permission decisions, permission check, evidence-only listing updates that
+  preserve existing commercial links, and terminal run statistics/errors.
+- `src/modules/database/test-database.ts`, `tests/integration/safety.ts`,
+  `scripts/migrate.ts`: shared exact disposable destination/role safety and an
+  explicit non-destructive `db:migrate -- --test` path. No new SQL migration and
+  no changes to the applied Phase 1 migration/checksum.
+- `tests/fixtures/amazon-promotions/`: hand-authored, clearly marked code/automatic,
+  empty, malformed JSON and changed-HTML fixtures with provenance README.
+- `tests/sources/{amazon-promotions,http}.test.ts` and
+  `tests/integration/collector.test.ts`: extraction, transport controls, real
+  PostgreSQL run/evidence persistence, partial/failure/cancellation behavior and CLI.
+- `package.json`: manual collect command; no new collector dependencies.
+- `.env.example`, `README.md`, `docs/POSTGRESQL.md`, `docs/SOURCES.md` and this log:
+  commands, empty secret bindings, request ceilings and unresolved live prerequisites.
+
+The collector stores unmatched observations only. It never creates commercial
+campaigns, globally deduplicates, deletes/expires offers, relinks existing matches,
+publishes inventory or upgrades verification. COUPON/clipping and unavailable
+individual-code redemption are rejected rather than mislabeled automatic.
+Source API lifecycle claims remain raw source evidence, not independent assurance.
+
+Initial new-suite verification passed 65/66 tests; the one failure was an assertion
+expecting an ISO timestamp without milliseconds instead of canonical `.000Z`.
+Corrected that assertion. A subsequent run passed all 66 tests. TypeScript also
+caught an inferred union for a mocked HTTP header; corrected the mock's header
+shape. These were test issues; no unknown commercial values were fabricated.
+
+Manual checks already executed: `npm run db:migrate -- --test` applied zero pending
+migrations. The fixture collector returned FIXTURE/SUCCESS with two observations
+and two canned request attempts. The command without --fixture returned LIVE/FAILED,
+SOURCE_NOT_APPROVED, zero requests and exit 1, with a persisted failed run. Fixture
+request counts represent canned transport attempts, not HTTP calls to Amazon.
+
+No daily scheduler, global matching, admin screens, public redesign or deployment
+was implemented. Staging/production provisioning remains pending by agreement.
+Hosted CI and permitted live collection have not run; fixture success does not
+establish live-source readiness. A forced process kill may leave a RUNNING record;
+lease recovery/heartbeat and reconciliation are Phase 3 work, not a scheduler here.
+
+### Final Phase 2 validation
+
+| Check | Actual result |
+| --- | --- |
+| Security prerequisite `npm test` before collector changes | Passed all 33 existing tests |
+| Security prerequisite TypeScript, lint and build | Passed on Next.js 16.4.3 |
+| Final `npm test` | Passed all 66 tests across 6 files, including the original 33 |
+| Real PostgreSQL coverage within that suite | Passed all 27 integration tests, including 8 collector/CLI tests |
+| Final `npm run typecheck` | Passed |
+| Final `npm run lint` | Passed |
+| Final `npm run build` | Passed on Next.js 16.4.3; placeholder/robots retained |
+| Final `npm audit` | Passed: zero vulnerabilities |
+| `npm run db:migrate -- --test` | Passed: 0 pending migrations |
+| `npm run collect -- --source amazon-in-promotions --fixture` | Passed: FIXTURE/SUCCESS, 2 synthetic observations, exit 0 |
+| `npm run collect -- --source amazon-in-promotions` | Expected refusal: persisted FAILED, SOURCE_NOT_APPROVED, 0 HTTP requests, exit 1 |
+| Production HTTP smoke on loopback | Passed: homepage 200, coupon placeholder/noindex; robots 200 with Disallow: / |
+| `git diff --check` | Passed |
+
+The first short HTTP smoke attempts could not reach the local process before
+startup completed. A longer bounded Node HTTP smoke passed; the temporary local
+server was stopped afterward. No deployment/publication occurred.
+
+New tests cover codes and automatic offers, optional/null terms, exact money,
+UTC timestamps and raw-date preservation, malformed JSON, unexpected HTML,
+schema changes, explicit empty and partial results, empty intermediate pages,
+pagination loops/totals, timeouts, cancellation, 401/403, rate limits, Retry-After,
+retry/request/response bounds, URL/redirect/private-address restrictions, persisted
+run outcomes and rollback, unchanged campaign links, evidence references and CLI
+exit behavior. Automated tests use canned source responses and a real isolated
+PostgreSQL 17 database; they never call a live retailer/API. The native external
+HTTPS path has not been exercised against Amazon without the missing authorization.
+
+**Phase 2 outcome:** fixture-backed adapter/manual collection engineering is
+implemented and verified. Live-source acceptance uses the explicit external-blocker
+path, not a claim of permitted live access or live-source readiness. See SOURCES.md
+for the exact seller/app/token, ASIN scope, retention, republication and attribution
+prerequisites. Stop here; later phases and remote provisioning remain pending.
+
+## Ticket layout, discovery content and supplied contact details (2026-10-29)
+
+Implemented the owner's requested refinement in the existing application. The
+canonical origin is **https://getpaid.co.in**; this is configuration, not a claim
+that DNS or a website host is connected. Contact & report shows the supplied
+email as a `mailto:` link and phone as `tel:+919965985951`. No email or call was
+sent. Neon PostgreSQL 17 and all existing data/migration files were preserved.
+The real catalogue remains **85 supplied, source-listed offers**, including 19
+Myntra offers, with 27 ambiguous source rows withheld. There were no application
+or Neon database writes in this frontend task.
+
+### Changes delivered
+
+- Exactly **seven main coupon tickets per page**, bounded pagination and a
+  separate three-offer related rail. Real circular alpha-mask cuts replace fake
+  edge circles. Stable blue, lime and neutral-paper tones use existing tokens.
+  Code fields and reveal/copy controls wrap safely; mobile stacks controls.
+- A capped central list with left category/reserved-ad space and right related
+  coupons/reserved-ad space on desktop. Below 1200px, rails are hidden and the list
+  has one column. No paid ads, ad network or misleading sponsored endorsements.
+- Removed the Design preview navigation link. Explicitly enabled development
+  preview URLs still work and are labelled synthetic; production returns 404.
+  Preview-only samples increased from seven to fifteen to test 7/7/1 pagination;
+  they were not imported into any database.
+- One SQL statement reads count, clamped page and related offers in one snapshot.
+  PostgreSQL major-version validation runs once per process, rather than for each
+  page. Request-scoped React deduplication, Link prefetch and a pending indicator
+  reduce navigation delay without a cross-request catalogue cache or collection
+  from page requests. Publication, duplicate-review and evidence checks remain.
+- Validated the two supplied attachments as draft content, excluded embedded
+  agent instructions, and integrated eight categories, eight guides and eight
+  FAQs. Added About, Contact/report, Disclosure, an explicitly unreviewed Privacy
+  draft, guide directory and human sitemap: **23 new content routes**, plus XML
+  sitemap. Existing merchant/detail routes were reused; coupon data was untouched.
+- Search resolves **147 distinct merchant/intent phrases**, brand/coupon
+  misspellings, category synonyms and actual codes using the existing catalogue.
+  No keyword doorway pages, fabricated coupons, verification, savings claims,
+  local offices, affiliate partnerships or source permissions were added.
+- Added unique metadata, clean page canonicals, internal category/store/guide
+  links, safely escaped Article/WebSite structured data and Indian English
+  language. Filter/search URLs and the privacy draft remain nonindexable. The
+  launch-gated XML sitemap excludes previews, search, privacy draft, expired
+  offers and empty merchants; errors do not invent sitemap data. No fake daily
+  modification dates. See **docs/SEO-STRATEGY.md** for route and release details.
+
+### Files changed in this task
+
+- Presentation: `app/globals.css`, `app/tokens.css`, `app/layout.tsx`, `app/page.tsx`,
+  `components/catalogue/{catalogue,chrome,workspace,page-link}.tsx`,
+  `components/content/{editorial,report-form}.tsx`, `design.md`, `.hallmark/log.json`.
+- Routes: `app/[slug]/page.tsx`, `app/{guides,faq,contact-report-an-offer,site-map}/page.tsx`,
+  `app/stores/[storeSlug]/{page,loading}.tsx`, `app/stores/amazon-india/page.tsx`,
+  `app/offers/[offerSlug]/page.tsx`, `app/{robots,sitemap}.ts`.
+- Data/search: `src/content/{pack.json,model.ts}`,
+  `src/modules/catalogue/{model,search-intent,preview.server,public.server}.ts`,
+  `src/modules/database/catalogue-repository.ts`, `src/modules/seo/config.ts`.
+- Verification/documentation: `tests/unit/{catalogue,discovery}.test.ts`,
+  `tests/integration/catalogue.test.ts`, `scripts/test-browser.mjs`, `.env.example`,
+  `docs/SEO-STRATEGY.md`, this progress entry and `docs/screenshots/` captures.
+
+### Checks and measured results
+
+- `npm test`: **94 tests / 12 files passed**, including **39 real PostgreSQL 17
+  integration tests**. New coverage checks seven-item pagination, related rows,
+  out-of-range clamping, category families, payment conditions, literal search,
+  private-field exclusion, intent mapping, unique content routes and indexing
+  configuration. Existing import, migration replay, constraints and transactions
+  remain in the complete regression suite.
+- `npm run typecheck`, `npm run lint`, `npm run build`: passed. The initial lint
+  finding (internal anchor instead of Next Link) was corrected.
+- `npm run test:browser`: passed search, filters, 7/7/1 preview pagination,
+  detail/reveal/clipboard/fallback, automatic offers, stale/expired/loading/error,
+  keyboard access, eight viewport widths and axe desktop/mobile. Expanded checks
+  cover guides/canonicals, category empty state, FAQ, contact mailto and prepared
+  reports. Scoped the error assertion to main content so Next's route announcer
+  cannot cause a false strict-locator failure.
+- `npm run test:browser:production`: passed noindex, blocked synthetic previews,
+  post-build supplied import visibility in the dedicated disposable test DB,
+  listing/detail/copy, private evidence exclusion and draft/synthetic isolation,
+  plus new content/contact checks. Test fixture records were cleaned up.
+- Read-only live Neon browser check: passed 85 total /19 Myntra, actual images,
+  store/category filters, page 2 of 3, seven main tickets, masked/revealed copy,
+  withheld-code exclusion, no overflow at 320/375/414/768/1024/1280/1440/1920,
+  and axe on home/store/detail desktop and mobile. No database writes.
+- Production/Neon content smoke: all 23 content routes returned 200 with noindex
+  and no synthetic offer leak; robots blocks crawling and sitemap has no URLs
+  before release. Typo search returned 19 Myntra offers with seven main cards;
+  payment category returned actual offers; page-2 canonical matched the public
+  domain. Category/contact/FAQ mobile axe checks passed. No database writes.
+- Hallmark `sloplint app components --scope app --genre editorial --render` over
+  store/category/guide/contact: **20 screenshots, zero FAIL, zero open REFLEX**.
+  Fixed tiny sidebar captions, mobile note gutters and long control-like guide
+  labels. Two short-footer-measure warnings were reviewed as appropriate short
+  captions; existing palette and content-title wrapping waivers are documented.
+  Fresh-context finish reviewer found no Floor issues and one self-recommending
+  guide link; excluded the current guide and recaptured desktop/mobile, resolved.
+- Production HTTP pagination benchmark against the same Neon endpoint, warmed
+  `/stores/myntra?page=2`, five full response reads: before
+  **1487/1490/1700/1495/1528 ms (median 1495)**; after
+  **304/300/285/295/287 ms (median 295)**, about 80% lower in this local sample.
+  This is not a production latency guarantee or cold-start measurement.
+- `git diff --check`: passed (Git reported normal LF/CRLF conversion notices).
+
+Screenshots: `live-myntra-desktop.png`, `live-myntra-mobile.png`,
+`live-offer-masked.png`, `live-offer-revealed.png`, `category-mobile.png`,
+`contact-desktop.png`, `contact-mobile.png`, `faq-mobile.png`, and
+`guide-final-how-to-use-coupon-codes-india-{desktop,phone}.png` in
+`docs/screenshots/`. Hallmark's twenty render captures remain in ignored local
+`.hallmark/shots/`.
+
+### Remaining release limits
+
+No public deployment, DNS/host binding, Search Console verification or production
+indexing release was performed. `PUBLIC_INDEXING_ENABLED=0` is the default; both
+build and runtime must deliberately enable it only after the host, HTTPS/domain,
+secure Neon secrets, privacy review and publication checks are complete. The
+privacy text and image reuse need operator review. No rankings or AI citations
+are promised. Daily reconciliation, global deduplication and permitted live
+collection remain outstanding and do not block approved supplied-data pages.
+This task stops at the requested frontend/content refinement.
+
+## Pagination, WhatsApp submission link, source credits and favicon (2026-10-29)
+
+- Replaced joined pagination controls with separate flex buttons, explicit gap,
+  nonshrinking labels and wrapping at narrow widths. Previous and Next now have
+  independent hit targets and cannot share DaisyUI joined borders/margins.
+- Added a top-right, mobile-visible **List promo codes** link with the number
+  underneath. It opens `https://wa.me/919965985951`; it does not automatically
+  send a message or publish a submitted coupon.
+- Added `/terms`, linked in the footer/human sitemap and launch-gated XML sitemap.
+  Terms and the existing privacy draft identify the owner-supplied batch's
+  references to publicly accessible third-party websites, credit the linked
+  sources and promotion owners, preserve their rights, disclaim affiliation and
+  provide correction/removal contact. Public accessibility is explicitly not a
+  reuse permission. Unknown terms and unverified source claims remain unchanged.
+  Privacy also describes the external email/WhatsApp contact channels. These
+  pages still require operator review before public launch.
+- Created a 96x96 PNG and PNG-backed ICO from the existing blue ticket brand mark,
+  using the installed image encoder, not a new or fabricated merchant logo.
+  Next's file conventions supply the icon links. Both icon URLs return 200.
+  The PNG/ICO formats and size follow Google's current favicon guidance:
+  https://developers.google.com/search/docs/appearance/favicon-in-search
+- SEO/GEO remains the documented useful-content, metadata, canonical, structured
+  data, language and internal-link foundation. Noindex and crawl restrictions
+  remain deliberate pre-launch settings. Hosting/domain binding, a deliberate
+  indexing release and Search Console verification are still pending. Google
+  must crawl the homepage and icon after release; showing the favicon is not
+  guaranteed and no ranking/AI-citation promise is made.
+
+Files: `components/catalogue/{catalogue,page-link,chrome}.tsx`, `app/globals.css`,
+`src/content/model.ts`, `app/sitemap.ts`, `app/icon.png`, `app/favicon.ico`,
+`scripts/test-browser.mjs`, this record and `docs/SEO-STRATEGY.md`.
+
+Checks: `npm test` **94/94 passed**, including the existing real PostgreSQL 17
+integration coverage; `npm run typecheck` and `npm run lint` passed;
+`npm run build` passed with finalized PNG/ICO assets;
+`npm run test:browser:production` passed existing search/detail/copy, content,
+contact, noindex and draft/fixture isolation checks. The first build overlapped
+replacement of the temporary SVG by PNG/ICO and could not read that removed
+file; the final build with stable files passed. A local browser-harness context
+setup error was corrected before the successful live layout run.
+
+Read-only live UI verification passed button bounding-box nonintersection at
+320/375/414/768/1024/1280/1440/1920, navigation both directions, WhatsApp URL and
+visibility, no horizontal overflow, terms/privacy attribution text, favicon link
+and PNG/ICO HTTP responses, zero browser errors, and axe desktop/mobile.
+Screenshots: `docs/screenshots/pagination-whatsapp-375.png` and
+`docs/screenshots/pagination-whatsapp-1440.png`. Persistent browser assertions now
+check the WhatsApp URL, icon link and pagination nonintersection at all eight
+widths. No migrations, coupon imports, application database writes, external
+messages or deployment were performed.
+
+Final development regression: npm run test:browser passed with the new WhatsApp/icon assertions and pagination geometry at all eight widths; follow-up npm run lint passed. The local Neon-backed development server was restored on localhost:3000.
+
+
+## Final header label and authorized GitHub delivery (2026-10-29)
+
+The header now displays only **List promo codes**. Removed the visible WhatsApp
+number and the number-bearing accessible label, while preserving the direct
+`https://wa.me/919965985951` destination. The contact page's previously requested
+phone/email links remain. Updated the browser selector to the concise label.
+
+Final checks: 94 tests /12 files passed; TypeScript, lint and production build
+passed. Read-only browser checks at 320/375/1440 verified the exact button text,
+no number in the header, correct WhatsApp destination and no horizontal overflow.
+A scan of 258 prospective tracked files found no configured secret values,
+private-key/access-token patterns or included local environment/data files.
+`.env.local`, `.data`, dependencies and runtime outputs remain ignored.
+
+The owner explicitly requested committing and pushing all completed application
+work to the existing `origin` GitHub repository on `main`. Remote state was
+fetched and matched local HEAD before committing. No deployment is part of this
+push; the existing CI workflow performs checks and has no deployment job.

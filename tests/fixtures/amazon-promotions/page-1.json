@@ -1,0 +1,19 @@
+{
+  "_fixture": "SYNTHETIC, authored for tests; not fetched from Amazon",
+  "totalResults": 2,
+  "pagination": { "nextToken": "synthetic-page-2" },
+  "promotions": [{
+    "promotionId": "synthetic-code-promotion", "trackingId": "synthetic-tracking-1",
+    "marketplaceId": "A21TJRUUN4KGV", "status": "RUNNING",
+    "createdDate": "2026-10-01T00:00:00Z", "lastUpdatedDate": "2026-10-29T00:00:00Z",
+    "promotionTitle": "SYNTHETIC electronics group-code fixture",
+    "promotionType": "BASKET_BUILDING", "schedule": {},
+    "selection": { "type": "ITEMS", "selectionId": "synthetic-selection-1", "revisionId": 1 },
+    "purchaseRequirements": {
+      "selection": { "type": "ITEMS", "selectionId": "synthetic-buy-selection", "revisionId": 1 },
+      "condition": { "amountThreshold": { "type": "AT_LEAST", "currency": { "amount": 1000.10, "currencyCode": "INR" } } },
+      "claimCode": { "type": "GROUP", "value": "FAKE20" }
+    },
+    "benefit": { "discount": { "type": "PERCENTAGE_OFF", "percentOff": 20 } }
+  }]
+}

@@ -1,0 +1,6 @@
+{
+  "retailerId": "fixture-store", "title": "Synthetic automatic offer", "description": null,
+  "kind": "AUTOMATIC", "code": null, "discountType": "FIXED", "discountBps": null,
+  "discountPaise": 100010, "minSpendPaise": null, "maxDiscountPaise": null,
+  "currency": "INR", "eligibility": {}, "validFrom": null, "validUntil": null
+}

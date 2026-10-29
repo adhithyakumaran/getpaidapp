@@ -1,0 +1,13 @@
+{
+  "_fixture": "SYNTHETIC, authored for tests; not fetched from Amazon",
+  "totalResults": 2,
+  "promotions": [{
+    "promotionId": "synthetic-automatic-promotion", "trackingId": "synthetic-tracking-2",
+    "marketplaceId": "A21TJRUUN4KGV", "status": "UPCOMING",
+    "createdDate": "2026-10-01T00:00:00Z", "lastUpdatedDate": "2026-10-29T00:00:00Z",
+    "promotionTitle": "SYNTHETIC electronics automatic discount fixture",
+    "promotionType": "PRICE_DISCOUNT",
+    "schedule": { "startDate": "2026-10-29T06:30:00+05:30", "endDate": "2026-11-01T23:59:00+05:30" },
+    "selection": { "type": "ITEMS", "selectionId": "synthetic-selection-2", "revisionId": 1 }
+  }]
+}

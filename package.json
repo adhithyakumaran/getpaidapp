@@ -6,23 +6,41 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:integration": "vitest run tests/integration",
+    "test:browser": "node scripts/test-browser.mjs",
+    "test:browser:production": "node scripts/test-browser.mjs --production",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:check": "tsx scripts/db-check.ts",
+    "import:coupons": "tsx scripts/import-coupons.ts",
+    "collect": "tsx workers/collector/cli.ts"
   },
   "dependencies": {
-    "next": "16.3.0",
+    "next": "16.4.3",
+    "pg": "8.16.3",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "4.6.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "8.15.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "daisyui": "^5.7.50",
     "eslint": "^9",
-    "eslint-config-next": "16.3.0",
+    "eslint-config-next": "16.4.3",
     "playwright": "^1.62.1",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "4.21.0",
+    "typescript": "^5",
+    "vitest": "4.1.12"
+  },
+  "engines": {
+    "node": ">=24 <25"
   }
 }
