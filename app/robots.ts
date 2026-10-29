@@ -1,16 +1,6 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/site-config";
 
+// Pre-launch only. Phase 6 replaces this with the approved public crawl policy.
 export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/api/", "/_next/"],
-      },
-    ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
-  };
+  return { rules: { userAgent: "*", disallow: "/" } };
 }

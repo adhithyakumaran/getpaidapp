@@ -1,0 +1,199 @@
+Skip to main content
+CLAUDE SEO
+HOME
+SKILLS
+BLOG
+Home/Skills
+// ALL SKILLS
+26 SEO SKILLS.
+ONE INSTALL.
+Claude SEO v2.5.0 includes one orchestrator and 25 focused subskills for auditing and improving search visibility. The package exposes 34 user commands, 19 specialist agents, and 9 optional extensions. It is free, open source, and MIT licensed; per the v2.4.0 release notes, its test suite passes at every commit.
+
+By Daniel Agrici · Last updated: October 22, 2026
+
+26
+TOTAL SKILLS
+34
+USER COMMANDS
+19
+SPECIALIST AGENTS
+9
+EXTENSIONS
+17
+MAX PARALLEL AGENTS
+// CHOOSE A WORKFLOW
+How should you choose a Claude SEO skill?
+Choose the skill that matches the decision you need to make. Start with the full-site audit when you need a broad baseline across technical SEO, content, schema, performance, images, and AI-search readiness. Use a focused skill when the problem is already known, such as a canonical error, weak E-E-A-T signals, missing Product markup, a backlink review, or Search Console reporting. Every focused command returns evidence and recommended actions without requiring the other skills to run. For foundational guidance, compare findings with Google's Search Essentials and SEO Starter Guide. The catalog separates core audits from specialist and optional data workflows so you can keep the scope proportional to the task.
+
+Broad baseline: full-site audit
+Known issue: focused specialist skill
+Ongoing regression checks: drift monitoring
+First-party metrics: Google SEO APIs
+Commercial live data: optional DataForSEO
+AI-search review: GEO analysis
+// CORE SKILLS
+Which core SEO skills are included?
+01
+FULL SITE AUDIT
+Delegates to up to 17 specialists: 9 always and 8 conditionally. Auto-detects SaaS, local, e-commerce, publisher, and agency sites.
+/seo audit <url>
+LEARN MORE →
+02
+TECHNICAL SEO
+9 categories: crawlability, indexability, security, URL structure, mobile, Core Web Vitals with INP, structured data, JS rendering, IndexNow.
+/seo technical <url>
+LEARN MORE →
+03
+E-E-A-T CONTENT
+Experience, Expertise, Authoritativeness, Trustworthiness per September 2025 Quality Rater Guidelines. Thin content detection and readability.
+/seo content <url>
+LEARN MORE →
+04
+SCHEMA MARKUP
+Detects JSON-LD, Microdata, and RDFa. Separates Schema.org validity from Google eligibility. Generates draft JSON-LD for 30+ schema types with verified values or explicit placeholders.
+/seo schema <url>
+LEARN MORE →
+05
+GEO / AI SEARCH
+Generative Engine Optimization for Google AI Overviews, ChatGPT, Perplexity, and Bing Copilot. AI crawler access and citability scoring.
+/seo geo <url>
+LEARN MORE →
+06
+LOCAL SEO
+Google Business Profile audit, NAP consistency, citation tiers, review sentiment analysis, map pack factors, and multi-location support.
+/seo local <url>
+LEARN MORE →
+07
+MAPS INTELLIGENCE
+Geo-grid rank tracking (7x7), GBP profile audit (25-field checklist), review intelligence, and competitor radius mapping.
+/seo maps <url>
+LEARN MORE →
+08
+SINGLE PAGE ANALYSIS
+Deep on-page analysis: title tags, meta descriptions, heading structure, content quality, internal linking, images, and performance flags.
+/seo page <url>
+LEARN MORE →
+09
+IMAGE OPTIMIZATION
+Alt text audit, file size analysis, format recommendations (WebP/AVIF), responsive images, lazy loading, and CLS prevention.
+/seo images <url>
+LEARN MORE →
+10
+SITEMAP
+XML sitemap validation, generation with industry templates, quality gates, HTTP status verification, and sitemap index support.
+/seo sitemap <url>
+LEARN MORE →
+11
+HREFLANG / I18N
+International SEO audit: hreflang validation, self-referencing tags, return tags, ISO code verification, and cross-domain support.
+/seo hreflang <url>
+LEARN MORE →
+12
+COMPETITOR PAGES
+"X vs Y" comparison pages, "alternatives to X" pages, feature matrices, and conversion-optimized comparison content.
+/seo competitor-pages
+LEARN MORE →
+13
+STRATEGIC PLANNING
+Industry-specific SEO strategy: competitive analysis, content pillars, architecture design, and 4-phase implementation roadmap.
+/seo plan <type>
+LEARN MORE →
+14
+PROGRAMMATIC SEO
+Pages at scale with quality gates. Template engines, URL patterns, internal linking automation, and thin content safeguards.
+/seo programmatic
+LEARN MORE →
+// SPECIALIST WORKFLOWS
+Which specialist and community skills are included?
+The complete catalog has 26 skills: one orchestrator plus 25 focused subskills. Every card links to a local command reference with readiness notes and primary sources.
+
+15
+FLOW FRAMEWORK
+Evidence-led SEO. 41 AI prompts across Find, Leverage, Optimize, Win, Local stages. Bundled CC BY 4.0. Context-matched orchestration.
+/seo flow [stage] <url>
+LEARN MORE →
+16
+FREE BACKLINK AUDIT
+Toxic link detection, anchor text health, competitor gap analysis. Free APIs: Moz, Bing Webmaster, Common Crawl, verify crawler.
+/seo backlinks <url>
+LEARN MORE →
+17
+GOOGLE SEO APIS
+Search Console, PageSpeed Insights, CrUX field data (25-week history), Indexing API, GA4 organic traffic. PDF and Excel reports.
+/seo google [command] <url>
+LEARN MORE →
+18
+TOPIC CLUSTERS
+SERP-overlap clustering (not text similarity). Hub-and-spoke architecture, interactive cluster map. Pro Hub Challenge: Lutfiya Miller.
+/seo cluster <seed-keyword>
+LEARN MORE →
+19
+SEO DRIFT MONITORING
+Git-style page comparisons with local SQLite baselines, 17 severity-tagged rules, and an explicit CI exit-code boundary. Pro Hub Challenge: Dan Colta.
+/seo drift baseline <url>
+LEARN MORE →
+20
+SXO ANALYSIS
+Search Experience Optimization. SERP-backward analysis, page-type mismatch detection, persona scoring. Pro Hub Challenge: Florian Schmitz.
+/seo sxo <url> [keyword]
+LEARN MORE →
+21
+E-COMMERCE SEO
+Product schema, Google Shopping visibility, Amazon marketplace intelligence, competitor pricing. Pro Hub Challenge: Matej Marjanovic.
+/seo ecommerce <url>
+LEARN MORE →
+22
+DATAFORSEO EXTENSION
+Live SERP, keyword, backlink, AI visibility data via DataForSEO MCP. 23 commands across 9 API modules. Cost guardrails included.
+/seo dataforseo [command]
+LEARN MORE →
+23
+AI IMAGE GENERATION
+OG previews, hero images, product photos, infographics, schema images via Google Gemini (nanobanana MCP). Brand-aware prompts.
+/seo image-gen og <desc>
+LEARN MORE →
+24
+SEO ORCHESTRATOR
+Routes all 34 user commands, detects site type, coordinates specialists, and synthesizes prioritized recommendations.
+/seo [command]
+LEARN MORE →
+25
+CONTENT BRIEF
+Creates SERP-informed content briefs with intent, competitive coverage, evidence requirements, structure, and quality gates.
+/seo content-brief
+LEARN MORE →
+26
+AGENT READINESS
+New in v2.4.0. Reports the Lighthouse Agentic Browsing fraction as X/N and checks the accessibility tree, AI agent access policy, llms.txt, Markdown, discovery files, and WebMCP.
+/seo agentic <url>
+LEARN MORE →
+FIVE COMMUNITY-CONTRIBUTED SKILLS · VIEW CONTRIBUTORS
+
+// FROM THE BLOG
+Learn how to use these skills with our practical SEO guides for developers.
+
+// FAQ
+What are the Claude SEO skills FAQ?
+What are Claude SEO skills?
+-
+They are focused workflows for technical SEO, content, structured data, AI-search visibility, local search, backlinks, ecommerce, and related search tasks inside Claude Code.
+Do the skills require a paid subscription?
++
+Can each skill run independently?
++
+Which skill should I start with?
++
+INSTALL ALL 26 SKILLS
+FREE AND MIT LICENSED.
+$
+git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git && bash claude-seo/install.sh
+COPY
+VIEW ON GITHUB
+CLAUDE SEO // MIT LICENSE // FREE FOREVER // AGRICIDANIEL
+GITHUB
+SKILLS
+BLOG
+YOUTUBE
+LINKEDIN
+LLMS.TXT
+Privacy settings

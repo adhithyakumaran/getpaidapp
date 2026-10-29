@@ -2,3 +2,9 @@ node_modules
 .next
 .env*.local
 node_modules/
+# Local coupon data and runtime outputs
+.data/
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
