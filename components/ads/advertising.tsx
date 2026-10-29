@@ -35,4 +35,3 @@ export function AdSlot({placement}:{placement:'top'|'native'|'sidebar'}){
  const unitId=placement==='native'?'native':placement==='sidebar'?'rectangle':wide?'leaderboard':'rectangle';
  return <ActiveAd key={pathname+':'+unitId} unitId={unitId} placement={placement}/>;
 }
-

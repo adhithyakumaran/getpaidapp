@@ -14,7 +14,7 @@ let browser;try{
    providerRequests.push(url.href);assert.ok(/^\/(21|22)\//.test(url.pathname),'No popup/social request');
    if(mode==='blocked'){await route.abort();return;}
    const native=url.pathname.startsWith('/21/');const id=native?'native':url.pathname.includes('fb1eb20')?'rectangle':'leaderboard';
-   const html='<div data-mock-ad="'+id+'" style="font:16px Arial;padding:20px;box-sizing:border-box;height:'+(native?320:id==='rectangle'?250:90)+'px">Mock advertisement — test creative, not live inventory</div>';
+   const html='<div data-mock-ad="'+id+'" style="font:16px Arial;padding:20px;box-sizing:border-box;height:'+(native?320:id==='rectangle'?250:90)+'px">Mock advertisement ï¿½ test creative, not live inventory</div>';
    const code=native?'document.getElementById("container-c567c1f1857b22c3352292625fe00f45").innerHTML='+JSON.stringify(html)+';': 'if(!window.atOptions||window.atOptions.width!=='+(id==='rectangle'?300:728)+')throw new Error("Wrong isolated options");document.write('+JSON.stringify(html)+');';
    await route.fulfill({contentType:'application/javascript',body:code+'try{parent.document.documentElement.setAttribute("data-ad-escaped","yes");}catch(e){}'});return;
   }
@@ -42,4 +42,3 @@ let browser;try{
  const beforePreview=providerRequests.length;await visit('/preview');await page.getByRole('heading',{name:'That page is not available.'}).waitFor();assert.equal(await page.locator('iframe[src*="advertising/frame"]').count(),0);assert.equal(providerRequests.length,beforePreview);
  assert.deepEqual(otherExternal,[]);assert.deepEqual(errors,[]);console.log('PASS mocked ads: zero requests before opt-in/after opt-out; exact isolated banner options; native lazy load; no popup/social scripts or parent access; public-page coverage; navigation/no duplicate frames; ad-block failure isolation; copy works; 8 widths; mobile/desktop axe. All provider requests intercepted: no live impressions or clicks.');
 }finally{await browser?.close();if(process.platform==='win32')await new Promise(r=>spawn('taskkill',['/PID',String(child.pid),'/T','/F'],{stdio:'ignore',windowsHide:true}).on('exit',r));else child.kill();}
-

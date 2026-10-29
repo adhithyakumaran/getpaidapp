@@ -888,3 +888,12 @@ Provider/account approval, actual creative fill, sandbox compatibility, supplied
 ads.txt lines if required, campaign categories and full privacy/retention review
 remain operator/provider checks. Ads are not guaranteed to serve or earn revenue.
 No bot, timer refresh, incentivised or accidental clicks were implemented.
+
+### Advertising rollout verified without live ad traffic
+
+Pushed c600fa7 to origin/main. A fresh HTTP-only request to www.getpaid.co.in
+returned200 with the Advertising preferences/Allow ads UI, seven coupon cards
+and no catalogue-load error. No browser scripts or ad-provider URLs were executed
+by this deployment check. Real creative fill and provider/account approval remain
+unverified. Removed two harmless extra EOF blank lines reported by staged
+whitespace checking; subsequent diff check is clean.
