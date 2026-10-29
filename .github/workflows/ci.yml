@@ -31,5 +31,6 @@ jobs:
       - run: npm run test:browser
       - run: npm run test:browser:production
       - run: npm run test:browser:fallback
+      - run: npm run test:browser:ads
       - if: always()
         run: docker compose --env-file .env.local --profile test down

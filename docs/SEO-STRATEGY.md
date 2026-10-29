@@ -71,3 +71,13 @@ bypass pre-launch noindex or guarantee Google's search-result appearance.
 Terms (`/terms`) and the privacy draft explain the supplied public-source claims,
 source credits, rights and external WhatsApp/email contact channels. The header
 submission link opens `https://wa.me/919965985951`; submissions require review.
+
+## Optional advertising update
+
+Optional third-party banner/native advertising is now configured under the
+existing design. Advertising loads after a visitor permits it in Ad settings;
+no affiliate links or merchant partnerships were added. The disclosure and
+privacy draft now explain the actual integration. See ADVERTISING.md for exact
+placements, build-time controls, sandbox boundaries and provider review limits.
+Ad frames emit noindex/nofollow and are not sitemap landing pages. Ads never
+change offer claims, source dates or verification metadata.

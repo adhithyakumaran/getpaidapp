@@ -371,3 +371,15 @@ button,a,input,select,summary { -webkit-tap-highlight-color: transparent; }
 @media(max-width:720px) { .header-actions { gap: var(--space-sm); }.promo-contact { font-size: var(--text-xs); padding-inline: var(--space-sm); }.promo-contact small { font-size: 11px; } }
 
 .snapshot-notice { border-left: 3px solid var(--color-accent); padding: var(--space-md); margin-block: var(--space-lg); background: var(--color-soft-accent); color: var(--color-ink); font-size: var(--text-sm); line-height: 1.6; }
+
+.ad-preferences { width: min(100% - var(--gutter)*2,var(--container-wide)); margin: var(--space-sm) auto; display: flex; align-items: center; justify-content: flex-end; gap: var(--space-md); font-size: var(--text-xs); color: var(--color-muted); }
+.ad-preferences-open { justify-content: space-between; padding-block: var(--space-sm); border-bottom: 1px solid var(--color-rule); }
+.ad-preferences p { max-width: 72ch; line-height: 1.6; }.ad-preferences p a { color: var(--color-accent); text-decoration: underline; }.ad-preferences>div { display: flex; gap: var(--space-sm); flex-shrink: 0; }.ad-preferences .btn { min-height: 40px; height: auto; font-size: var(--text-xs); padding: var(--space-sm) var(--space-3); }
+.ad-slot { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); margin-block: var(--space-xl); min-width: 0; }
+.ad-slot-label { font-size: var(--text-xs); color: var(--color-muted); line-height: 1.5; }
+.ad-slot-surface { max-width: 100%; min-width: 0; background: var(--color-paper-2); }
+.ad-slot iframe { display: block; border: 0; max-width: 100%; }
+.ad-slot-top,.ad-slot-native { width: calc(100% - var(--space-md)); margin-inline: auto; }.ad-slot-top { max-width: 728px; }.ad-slot-native { max-width: 860px; }
+.ad-slot-sidebar { margin-top: 0; margin-bottom: var(--space-xl); }
+@media(min-width:1200px) { .catalogue-workspace:has(.ad-slot-sidebar) { grid-template-columns: 180px minmax(0,1fr) 300px; } }
+@media(max-width:720px) { .ad-preferences { align-items: flex-start; flex-wrap: wrap; }.ad-preferences-open { flex-direction: column; gap: var(--space-sm); }.ad-preferences>div { flex-wrap: wrap; } }

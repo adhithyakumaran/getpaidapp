@@ -17,7 +17,8 @@
     "import:coupons": "tsx scripts/import-coupons.ts",
     "collect": "tsx workers/collector/cli.ts",
     "catalogue:export": "tsx scripts/export-public-catalogue.ts",
-    "test:browser:fallback": "node scripts/test-fallback-browser.mjs"
+    "test:browser:fallback": "node scripts/test-fallback-browser.mjs",
+    "test:browser:ads": "node scripts/test-ads-browser.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

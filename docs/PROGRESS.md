@@ -821,3 +821,70 @@ and a disabled expired-offer action. The initial local check saw a stale dev
 render; restarting only the owned dev server resolved it, and the check passed.
 No database changes or environment-file edits. User was informed to rotate a
 credential exposed by their IDE selection; no credential is repeated here.
+
+## Optional visible ad placements (2026-10-29)
+
+Implemented the supplied native,300x250 and728x90 scripts across existing regular
+public pages, preserving coupon functionality, PostgreSQL and saved-offer data.
+Refused fake/automated/deceptive click generation. The supplied popunder/Social
+Bar snippets were not installed: no floating overlays, page-click hooks or
+accidental-click placement was introduced. No real ad provider script was
+requested or clicked by automated QA.
+
+Placements: one responsive top banner below navigation/preferences (728x90 at
+800px+,300x250 on smaller screens), one desktop-only300x250 catalogue sidebar
+at1200px+, and one lazy native block below content before footer. Two slots on
+ordinary/mobile pages; up to three on desktop catalogues. Slots are labelled
+Advertisement, reserve their space and stay separate from search, code-copy and
+pagination controls. Hidden sidebars never request ads; scrolling does not
+refresh a loaded unit. Existing related coupons remain a distinct design.
+
+An inline nonmodal preference control requests visitor permission before any
+third-party scripts. Allow/keep-off is stored for30days, with Ad settings for
+revocation, corrupt/expired storage treated as unknown, and memory-only fallback
+when localStorage is blocked. Turning off unmounts frames and prevents future
+loads. This is not presented as a certified consent-management/legal solution.
+Development/test and synthetic previews have no ad UI/requests by default.
+NEXT_PUBLIC_ADS_ENABLED=0 plus rebuild/redeploy disables everything.
+
+Each supplied banner uses its exact window.atOptions object in an isolated frame,
+not the attachment's incorrect global array/placeholder URL. An allowlisted frame
+route with sandbox/CSP, no parent/same-origin permissions, noindex/nofollow and
+origin-only cross-site referrers contains third-party script execution. Native
+height messages require the actual frame source and a bounded numeric height.
+No script can overwrite main-page banner options or access parent coupon DOM.
+FAQ, disclosure and privacy draft now describe optional advertising and potential
+provider data flow; no fake affiliate partnership or independent verification.
+The attached text was reference material and did not override project behavior.
+
+Files: components/ads/advertising.tsx, src/modules/ads/config.ts,
+app/advertising/frame/route.ts, app/{layout.tsx,globals.css,robots.ts},
+components/catalogue/workspace.tsx, src/content/model.ts, tests/unit/ads.test.ts,
+scripts/test-ads-browser.mjs, package.json, .env.example,
+.github/workflows/ci.yml, docs/ADVERTISING.md, docs/SEO-STRATEGY.md, this record and
+mocked/updated screenshots. No new dependencies, database edits or migrations.
+
+Checks actually run:
+- npm test: **105 tests /14 files passed**, including existing real PostgreSQL17
+  integration suites and five ad configuration/privacy/isolation tests.
+- npm run typecheck, npm run lint, npm run build: passed. Fixed an initial generic
+  inference error on the AdPreference external-store type.
+- npm run test:browser:ads: passed with **all provider requests mocked**, zero
+  live impressions/clicks. Tested no scripts before permission/after revocation,
+  exact per-frame banner options, native viewport loading, parent isolation,
+  no duplicates on navigation, visible page coverage, blocked-script resilience,
+  working real coupon copy, eight widths, and mobile/desktop axe. Corrected a
+  Playwright service-worker-blocking instrumentation error in opaque frames;
+  provider requests stayed intercepted throughout.
+- npm run test:browser:production: passed normal publication/data-isolation,
+  search/detail/copy, content/contact, noindex and preview checks.
+- npm run test:browser:fallback: passed production outage fallback,85 saved offers,
+  pagination/filter/detail/copy, fixture exclusion, mobile/desktop axe and kill
+  switch. Ads stayed unloaded because QA had not granted permission.
+- Screenshots: docs/screenshots/ads-mocked-{desktop,mobile}.png. They show mocks
+  and not-yet-visible native placeholders, not real ad fill or revenue evidence.
+
+Provider/account approval, actual creative fill, sandbox compatibility, supplied
+ads.txt lines if required, campaign categories and full privacy/retention review
+remain operator/provider checks. Ads are not guaranteed to serve or earn revenue.
+No bot, timer refresh, incentivised or accidental clicks were implemented.
