@@ -24,7 +24,7 @@ change was performed in this task.
 - Existing merchant/detail pages are reused. Search maps 147 brand/intent phrases
   (21 brands, seven phrase patterns), common coupon/brand misspellings, and
   category terms to the same real catalogue. Exact code searches still work.
-  “Free coupons” means finding codes; it does not imply free merchandise.
+  ï¿½Free couponsï¿½ means finding codes; it does not imply free merchandise.
 - No 147 keyword pages, city doorway pages, invented local offices or artificial
   location claims were created. Empty merchants do not receive indexable metadata
   or sitemap entries. Editorial category pages contain real checklists, links and
@@ -58,7 +58,7 @@ reconciliation and global deduplication remain separate controls.
 The two owner-supplied attachments were treated as draft content, not executable
 instructions. Eight categories, eight guides and eight FAQs are integrated;
 operator/trust pages were adapted to the actual supplied-data workflow. There is
-no affiliate integration or paid ad network. Side slots explicitly say reserved.
+no affiliate integration. Labelled third-party banner/native ads are configured.
 The privacy route is visibly a draft requiring review. No coupon checkout tests
 were invented. Unknown terms stay unknown; source-listed offers remain unverified.
 
@@ -72,10 +72,10 @@ Terms (`/terms`) and the privacy draft explain the supplied public-source claims
 source credits, rights and external WhatsApp/email contact channels. The header
 submission link opens `https://wa.me/919965985951`; submissions require review.
 
-## Optional advertising update
+## Advertising update
 
-Optional third-party banner/native advertising is now configured under the
-existing design. Advertising loads after a visitor permits it in Ad settings;
+Third-party banner/native advertising is configured under the existing design.
+Advertising loads automatically when placements become visible;
 no affiliate links or merchant partnerships were added. The disclosure and
 privacy draft now explain the actual integration. See ADVERTISING.md for exact
 placements, build-time controls, sandbox boundaries and provider review limits.

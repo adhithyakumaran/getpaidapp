@@ -1,105 +1,82 @@
 # Visible advertising integration
 
-## Active formats and placements
+## Formats and placements
 
-Only the three owner-supplied visible units are configured:
+Production pages load the three owner-supplied visible units automatically when
+at least 25% of a placement is in view. There is no preference strip or stored
+ad preference. Development, test and synthetic preview routes remain disabled.
 
 | Unit | Script | Placement |
 | --- | --- | --- |
-|728x90|bauval.org/22/223929b640ef66070ae29b3989c19b13|Below navigation/preferences on screens800px and wider|
-|300x250|bauval.org/22/fb1eb20db406f6eb26613b1d7b42b325|Top placement below800px; one additional catalogue sidebar at1200px and wider|
-|Native|bauval.org/21/c567c1f1857b22c3352292625fe00f45|After page content, before the footer|
+| 728x90 | bauval.org/22/223929b640ef66070ae29b3989c19b13 | Below navigation at widths 800px+ |
+| 300x250 | bauval.org/22/fb1eb20db406f6eb26613b1d7b42b325 | Below navigation on smaller screens; desktop catalogue sidebar at 1200px+ |
+| Native | bauval.org/21/c567c1f1857b22c3352292625fe00f45 | Desktop catalogue sidebar below related coupons; otherwise below page content |
 
-Regular pages inherit top/native slots from the existing root layout. Home,
-search, stores and category catalogue layouts also have one desktop sidebar slot.
-Each placement is explicitly labelled Advertisement, separated from search,
-reveal/copy and pagination controls. The former fake reserved ad boxes are removed.
-Top and sidebar units reserve their known dimensions. Native height is bounded
-and reported by its frame. No sticky overlay, timed auto-refresh, click incentive,
-click bot, disguised coupon, fake close button or background click generation.
-There is no guarantee of more revenue, viewability or clicks.
+Each supplied key appears at most once per page. Desktop catalogues therefore
+have two distinct sidebar units and one top banner. Other layouts have a top
+banner and a native unit. Related coupons separate sidebar ads. All placements
+say Advertisement and remain separate from search, copy and pagination controls.
+Hidden sidebars do not request scripts. Scrolling does not refresh units;
+pathname navigation remounts them once, while query-only pagination does not.
+Blocked/erroring scripts or a 12-second loading timeout produce an unavailable
+notice without affecting coupons. Native height messages are bounded.
 
-The supplied bauval.org/14 Social Bar and abscloud.org/1 popunder are **not
-installed**. Page-wide click listeners and floating/popup formats do not suit this
-restrained placement. All mock tests assert that those URLs are never requested.
+The supplied Social Bar and popunder remain uninstalled. There are no overlays,
+page-click hooks, fake clicks, timer refreshes or deceptive coupon controls.
+No revenue, viewability, fill or click rate is promised.
 
-The pasted implementation attachment was treated as reference, not instructions:
-its placeholder URLs and `_atOptions` array were not copied. Actual iframe banner
-snippets require `window.atOptions`; each unit gets its own frame/global dictionary
-so sizes and keys cannot overwrite one another.
+## Native loading diagnosis and isolation
 
-## Visitor choice and loading
+The supplied native tag reads document.cookie. A downloaded copy replayed with
+all outbound requests blocked threw a SecurityError in the previous opaque
+sandbox. Both banner tags returned HTTP 200; script availability alone does not
+prove creative fill. Direct native execution in the coupon page was rejected by
+automatic approval review because it would expose page cookies and data.
 
-Production only. Initial state makes **no third-party ad requests**. An inline,
-nonmodal preference strip offers Allow ads and Keep ads off. The choice is saved
-in localStorage for30days; malformed/expired storage is not permission. Ad settings
-below the navigation lets visitors change it. If storage is blocked, the choice
-lasts in memory. Turning ads off removes frames and stops future requests; it does
-not erase data already received by third parties. This is a simple local choice,
-not a claim of a certified CMP or comprehensive legal compliance.
+Banners continue in opaque sandboxed frames. Native ads instead use an independent
+HTTPS origin, with allow-same-origin granted only to that foreign document.
+The browser's same-origin policy prevents reading the parent coupon DOM/cookies.
+The native iframe also requests credentialless isolation in supporting browsers.
+This does not make third-party advertising tracking-free.
 
-After opt-in, each slot requests its script only when at least25% of that slot is
-in view. Hidden mobile sidebars never mount a frame. Scrolling does not refresh
-an ad. Navigation to another pathname remounts that page's slots once; query-only
-pagination does not trigger a refresh. Synthetic preview routes never load ads.
-An ad blocker/script failure leaves coupons and navigation functional.
+The origin defaults to https://VERCEL_URL, Vercel's unique deployment hostname.
+Optionally set NATIVE_AD_FRAME_ORIGIN to an independently hosted, publicly
+accessible instance of this app. It must not be getpaid.co.in or any subdomain;
+non-HTTPS, credentials, paths, query strings and ports are rejected. The parent
+also rejects an origin equal to its own. The native response grants cookie APIs
+only when its request origin exactly matches configuration. On the coupon domain
+it always retains the opaque sandbox. Allowed native ancestors are the bare and
+www getpaid.co.in hosts. A protected Vercel deployment URL or a provider origin
+restriction needs operator configuration; do not bypass deployment protection.
 
-## Isolation and provider compatibility
+The allowlisted /advertising/frame endpoint rejects unknown/duplicate units,
+emits noindex/nofollow and no-store, and is excluded from the sitemap. Messages
+are accepted only from the exact iframe window. Scripts cannot overwrite the
+parent's atOptions. Sandbox permissions exclude parent navigation and forms.
 
-The allowlisted `/advertising/frame?unit=rectangle|leaderboard|native` route serves
-small HTML documents with the exact supplied keys/scripts. It rejects arbitrary
-units and duplicate unit parameters. Both the iframe and its response CSP sandbox
-permit scripts/pop-up destinations for genuine creative links but do not grant
-same-origin access, parent navigation or forms. Provider scripts cannot read the
-main page DOM or overwrite its `atOptions`. Frame-to-parent messages only accept
-bounded numeric native heights from that exact frame window. Referrers are reduced
-to the origin for cross-origin requests. Frames emit noindex/nofollow and are
-excluded from the public sitemap/crawl policy.
+## Configuration and review
 
-Third-party code still controls the creative it serves within its frame. Real
-fill, origin/referrer checks, sandbox compatibility, content categories and
-account approval must be checked by the operator with the provider. No live
-creative was requested or clicked during implementation/testing. Request the
-provider's authorised ads.txt entries if required; publisher IDs cannot be
-inferred from these ad keys. Ad availability and revenue were not invented.
+NEXT_PUBLIC_ADS_ENABLED defaults to enabled in production. Set it to 0 and rebuild/
+redeploy to disable all placements and frame endpoints. Ad keys are public
+configuration. No database changes or migrations are involved.
 
-## Configuration and disclosure
-
-`NEXT_PUBLIC_ADS_ENABLED` defaults to enabled for production builds. Set it to0
-and **rebuild/redeploy** to remove ad UI and disable frame endpoints. Development
-and test environments stay off; use the mocked production suite for local QA.
-The units are public configuration, not credentials. No database/migration or
-collection changes are involved.
-
-FAQ and advertising disclosure now describe optional paid ads without inventing
-merchant partnerships or affiliate tracking. The privacy draft describes the
-30-day preference and possible provider IP/device/browser/origin/cookie data.
-Provider identity, retention, terms, geography and privacy details still need
-operator review; the privacy page remains visibly a draft. Existing noindex is
-unchanged.
+FAQ, advertising disclosure and the visibly draft privacy page describe default
+loading and possible provider IP/device/origin/cookie data. Provider identity,
+retention, geography, account/site approval, authorised ads.txt entries, content
+categories and privacy requirements still need operator/provider review. An
+independent native hostname may need approval in the advertising account.
 
 ## Verification
 
-```
-npm test
-npm run typecheck
-npm run lint
-npm run build
-npm run test:browser:ads
-npm run test:browser:production
-npm run test:browser:fallback
-```
+Run npm test, npm run typecheck, npm run lint, npm run build, then
+npm run test:browser:ads, npm run test:browser:production and
+npm run test:browser:fallback. Browser suites mock or abort external advertising
+requests and never click ads. The ads suite checks default loading, unique keys,
+two sidebar units, native cookie compatibility with parent isolation, blocked
+status, coupon copy, eight widths and desktop/mobile axe accessibility.
+Screenshots ads-default-sidebar-desktop.png and ads-default-mobile.png use mocks,
+not live inventory. Actual check outcomes are recorded in PROGRESS.md.
 
-The ads suite intercepts every bauval.org request with clearly labelled mock
-creatives, aborts all other external origins, never clicks an advertisement, and
-checks consent/no requests, lazy loading, separate banner dictionaries, sandbox
-parent isolation, route changes, blocked scripts, real coupon copy, eight widths
-and mobile/desktop axe. Screenshots `ads-mocked-desktop.png` and
-`ads-mocked-mobile.png` show test creatives/placeholders, not live readiness.
-CI runs this suite. This prevents automated QA from producing live impressions.
-
-Provider references consulted: [formats](https://adsterra.com/ad-formats/),
-[banner/native embedding](https://adsterra.com/blog/how-to-add-ads-to-wix-website-with-ad-codes/)
-and [placement guidance](https://adsterra.com/blog/how-put-ads-on-your-website-and-get-paid/).
-Our sandbox implementation is an application isolation choice, not a claimed
-provider-certified integration.
+Provider guidance: [banner placement and unique codes](https://adsterra.com/blog/how-banner-ads-make-money/).
+Host configuration: [Vercel system variables](https://vercel.com/docs/environment-variables/system-environment-variables).
+The isolation design is not represented as provider-certified.

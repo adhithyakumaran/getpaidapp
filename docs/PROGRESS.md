@@ -897,3 +897,58 @@ and no catalogue-load error. No browser scripts or ad-provider URLs were execute
 by this deployment check. Real creative fill and provider/account approval remain
 unverified. Removed two harmless extra EOF blank lines reported by staged
 whitespace checking; subsequent diff check is clean.
+
+## Default-on advertising and sidebar loading fix (2026-10-30)
+
+Removed the ad preference bar and localStorage preference handling as requested.
+Production placements now load automatically when visible; development/test and
+synthetic previews remain disabled. The build-time kill switch remains available.
+Desktop catalogues now show the rectangle and native units in the right sidebar,
+separated by related coupons. Each supplied ad key appears once per page. Mobile
+and non-catalogue layouts retain a responsive top banner and native content slot.
+Failed/blocked scripts and a 12-second timeout show an honest unavailable notice.
+
+Diagnosis: all three supplied script URLs returned HTTP 200 when fetched once as
+text. Replaying those cached tags with all subsequent outbound requests blocked
+identified a native document.cookie SecurityError caused by the old opaque frame.
+Automatic approval review rejected executing native JS directly in the coupon
+page because it could expose cookies/page data. The accepted alternative keeps
+banners opaque and uses an independent HTTPS origin for native frames, defaulting
+to Vercel's unique VERCEL_URL hostname. Cookie API access is granted only on that
+foreign document; getpaid.co.in and all its subdomains are rejected as native
+hosts. The parent DOM/cookies remain inaccessible. Native frames request the
+credentialless attribute in supporting browsers. No protected deployment bypass,
+database edits, migrations, fake clicks, overlays or timer refreshes were added.
+
+Changed files: app/{layout.tsx,globals.css,advertising/frame/route.ts},
+components/{ads/advertising.tsx,catalogue/workspace.tsx},
+src/modules/ads/config.ts, src/content/model.ts, tests/unit/ads.test.ts,
+scripts/test-{ads-browser,browser,fallback-browser}.mjs, .env.example,
+docs/{ADVERTISING.md,SEO-STRATEGY.md,PROGRESS.md} and generated QA screenshots.
+Disclosures and the privacy draft now describe default loading. QA blocks or
+mocks advertising requests to prevent live impressions; ad links are never clicked.
+
+Checks actually completed:
+- npm test: 107 tests / 14 files passed, including real PostgreSQL 17 suites.
+- npm run typecheck and npm run lint: passed.
+- npm run build: passed after correcting a test AdPlacement inference error and
+  the React boolean credentialless attribute.
+- npm run test:browser:production: passed, including post-build supplied imports,
+  search/detail/copy and draft/private/synthetic record exclusion.
+- npm run test:browser:fallback: passed, including 85 saved offers, seven per page,
+  search/filter/pagination/detail/copy, mobile/desktop axe and disabled fallback.
+
+Limitations: live creative fill is not proven by mock tests. The native host must
+be publicly accessible, serve this app without redirecting to the coupon origin,
+and be accepted by the ad account. A protected deployment alias needs an approved
+independent public host via NATIVE_AD_FRAME_ORIGIN. Provider/site approval, ads.txt
+if required and privacy/retention review remain operator requirements.
+
+- npm run test:browser:ads: passed with mocked creatives only; default loading,
+  no preference UI, two distinct sidebar units, no duplicate keys, native cookie
+  API compatibility with parent isolation, blocked status, real coupon copy,
+  eight widths and desktop/mobile axe. Initial run caught the missing boolean
+  iframe attribute; corrected it and reran successfully.
+- Screenshots: docs/screenshots/ads-default-sidebar-desktop.png and
+  ads-default-mobile.png (mock inventory), plus refreshed regular/fallback QA views.
+- Configured-secret scan: 282 tracked/prospective files, zero findings.
