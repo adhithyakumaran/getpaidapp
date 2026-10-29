@@ -807,3 +807,17 @@ No data writes or external messages occurred. The live site is currently using
 saved mode, confirming that live database access still needs Vercel-side
 configuration attention. The safe snapshot is the owner's authorized working
 alternative, not a claim that the hosted database secret has been repaired.
+
+## Remove the requested Unverified badges (2026-10-29)
+
+Removed the observed-state Unverified badge from coupon cards and details.
+Expired, upcoming and older-submission/observation warnings remain. Original
+source attribution, Not checkout tested disclosure, publication state and actual
+verification data are unchanged; no records were relabelled as verified.
+
+TypeScript, lint and production build passed. Refreshed-development browser check
+passed cards/detail without the removed badge, preserved checkout-test disclosure
+and a disabled expired-offer action. The initial local check saw a stale dev
+render; restarting only the owned dev server resolved it, and the check passed.
+No database changes or environment-file edits. User was informed to rotate a
+credential exposed by their IDE selection; no credential is repeated here.
