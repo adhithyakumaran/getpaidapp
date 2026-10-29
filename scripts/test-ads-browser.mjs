@@ -3,8 +3,8 @@ import {mkdir} from 'node:fs/promises';
 import {chromium} from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
-const port=3124,base='http://127.0.0.1:'+port,nativeOrigin='https://getpaid-native-fixture.vercel.app';let logs='';
-const child=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port',String(port)],{env:{...process.env,NODE_ENV:'production',DATABASE_URL:'',PUBLIC_CATALOGUE_SNAPSHOT:'1',NATIVE_AD_FRAME_ORIGIN:nativeOrigin},windowsHide:true,stdio:['ignore','pipe','pipe']});child.stdout.on('data',b=>logs+=b);child.stderr.on('data',b=>logs+=b);
+const port=3124,base='http://127.0.0.1:'+port,nativeOrigin='https://getpaidapp.vercel.app';let logs='';
+const child=spawn(process.execPath,['node_modules/next/dist/bin/next','start','--hostname','127.0.0.1','--port',String(port)],{env:{...process.env,NODE_ENV:'production',DATABASE_URL:'',PUBLIC_CATALOGUE_SNAPSHOT:'1',NATIVE_AD_FRAME_ORIGIN:'',VERCEL_URL:'getpaidapp-fixture.vercel.app'},windowsHide:true,stdio:['ignore','pipe','pipe']});child.stdout.on('data',b=>logs+=b);child.stderr.on('data',b=>logs+=b);
 let browser;try{
  let ready=false;for(let i=0;i<100;i++){try{if((await fetch(base)).ok){ready=true;break;}}catch{}if(child.exitCode!==null)throw new Error('Ads test server exited');await new Promise(r=>setTimeout(r,500));}assert.ok(ready);
  browser=await chromium.launch();const context=await browser.newContext({viewport:{width:1440,height:1000},permissions:['clipboard-read','clipboard-write']});let mode='mock';const providerRequests=[],otherExternal=[];

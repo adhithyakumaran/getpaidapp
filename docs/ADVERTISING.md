@@ -39,7 +39,10 @@ The browser's same-origin policy prevents reading the parent coupon DOM/cookies.
 The native iframe also requests credentialless isolation in supporting browsers.
 This does not make third-party advertising tracking-free.
 
-The origin defaults to https://VERCEL_URL, Vercel's unique deployment hostname.
+On Vercel, the origin defaults to this app's public production alias,
+https://getpaidapp.vercel.app. Generated deployment URLs require Vercel SSO here
+and cannot serve public ad frames. The existing production alias was verified
+public with the exact app/native tag using HTTP-only requests.
 Optionally set NATIVE_AD_FRAME_ORIGIN to an independently hosted, publicly
 accessible instance of this app. It must not be getpaid.co.in or any subdomain;
 non-HTTPS, credentials, paths, query strings and ports are rejected. The parent

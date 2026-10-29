@@ -25,7 +25,8 @@ export function selectAdUnit(placement:AdPlacement,path:string,wide:boolean,desk
 // Native scripts may use cookies only on an independent ad-document origin.
 // Never grant same-origin access to a native frame served on the coupon domain.
 export function nativeFrameOrigin(env:Record<string,string|undefined>):string|undefined{
- const raw=env.NATIVE_AD_FRAME_ORIGIN||(env.VERCEL_URL?'https://'+env.VERCEL_URL:'');
+ // Verified public production alias; generated deployment URLs require Vercel SSO.
+ const raw=env.NATIVE_AD_FRAME_ORIGIN||(env.VERCEL_URL?.endsWith('.vercel.app')?'https://getpaidapp.vercel.app':'');
  if(!raw)return;try{const url=new URL(raw);if(url.protocol!=='https:'||url.username||url.password||url.port||url.search||url.hash||url.pathname!=='/'||url.hostname==='getpaid.co.in'||url.hostname.endsWith('.getpaid.co.in'))return;
  if(!env.NATIVE_AD_FRAME_ORIGIN&&!url.hostname.endsWith('.vercel.app'))return;
  return url.origin;}catch{return;}

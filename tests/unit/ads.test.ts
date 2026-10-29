@@ -30,5 +30,5 @@ it('allows native cookie APIs only on the independent configured ad host, preser
 });
 it('never selects the coupon domain, its cookie-sharing subdomains, unsafe schemes or credential URLs as a native host',()=>{
  for(const origin of['https://getpaid.co.in','https://www.getpaid.co.in','https://ads.getpaid.co.in','http://ads-fixture.vercel.app','https://user:pass@ads-fixture.vercel.app','https://ads-fixture.vercel.app/other'])expect(nativeFrameOrigin({NATIVE_AD_FRAME_ORIGIN:origin})).toBeUndefined();
- expect(nativeFrameOrigin({VERCEL_URL:'safe-deployment.vercel.app'})).toBe('https://safe-deployment.vercel.app');expect(nativeFrameOrigin({VERCEL_URL:'getpaid.co.in'})).toBeUndefined();
+ expect(nativeFrameOrigin({VERCEL_URL:'safe-deployment.vercel.app'})).toBe('https://getpaidapp.vercel.app');expect(nativeFrameOrigin({VERCEL_URL:'getpaid.co.in'})).toBeUndefined();
 });

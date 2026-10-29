@@ -952,3 +952,22 @@ if required and privacy/retention review remain operator requirements.
 - Screenshots: docs/screenshots/ads-default-sidebar-desktop.png and
   ads-default-mobile.png (mock inventory), plus refreshed regular/fallback QA views.
 - Configured-secret scan: 282 tracked/prospective files, zero findings.
+
+### Public deployment follow-up
+
+Pushed 4e0eb4d to origin/main. HTTP-only verification confirmed the new main page
+returns 200, seven coupons, and no Allow ads preference UI. Its native frame used
+the generated deployment hostname, which returned a Vercel SSO redirect (302).
+The existing production alias https://getpaidapp.vercel.app instead returned 200
+for both this coupon app and its exact native frame tag without authentication.
+Updated the Vercel default to that verified public production alias; explicit
+NATIVE_AD_FRAME_ORIGIN still overrides it. This uses an already-public production
+address and does not disable or bypass deployment protection. The parent remains
+on getpaid.co.in and the native frame remains on a separate origin.
+
+Follow-up checks: npm test (107/14), npm run build (including TypeScript),
+npm run lint and npm run test:browser:ads all passed. The browser suite now
+exercises the default public production alias with all foreign requests
+intercepted; zero live ad impressions/clicks. Secret scan: 283 files, zero findings.
+An unrelated untracked sw.js appeared during the task; it is not included or
+installed by this change.
