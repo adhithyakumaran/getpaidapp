@@ -4,6 +4,12 @@ Canonical origin: **https://getpaid.co.in** (owner supplied). Contact links use
 `mailto:adhithyakumaran2005@gmail.com` and `tel:+919965985951`. These links open
 the visitor's own applications; no message or call is sent automatically.
 
+Current submission instructions and important page URLs are maintained in
+[SEARCH-CONSOLE.md](SEARCH-CONSOLE.md), including the 2026-10-30 live crawl check
+and the Vercel Production indexing flag. The generated robots route always
+advertises the canonical sitemap; the launch gate still controls crawling and
+page indexing.
+
 The site remains pre-launch: leave `PUBLIC_INDEXING_ENABLED=0`. Both development
 and the default production build emit noindex; robots disallows crawling and the
 XML sitemap is empty. A reviewed public host needs the correct HTTPS/domain

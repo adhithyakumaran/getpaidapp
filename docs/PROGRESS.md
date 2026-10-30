@@ -1032,3 +1032,66 @@ assertion passed; byte-for-byte worker comparison passed; configured-secret scan
 were not rerun for this requested quick integration. No provider scripts or
 creatives were executed during checks. Live fill/account activation is not proven
 by these static checks and remains for the owner/provider to confirm.
+
+## Search Console URLs and generated robots metadata (2026-10-30)
+
+Inspected the existing Next.js sitemap/robots routes and installed metadata
+documentation. Used the installed SEO skill's technical-foundation guidance for
+this narrow crawl/submission task. No new sitemap implementation or competing
+public/robots.txt was introduced. app/robots.ts already serves /robots.txt; it now
+always advertises Sitemap: https://getpaid.co.in/sitemap.xml, including while the
+existing launch gate is off. Production crawling still requires the explicit
+PUBLIC_INDEXING_ENABLED=1 flag. Development retains noindex/crawl restrictions.
+
+Files changed: app/robots.ts, docs/SEARCH-CONSOLE.md, docs/SEO-STRATEGY.md and this
+progress record. No dependency, coupon/advertising, calendar or database change.
+The new submission guide gives the exact XML URL, distinguishes the visitor
+directory /site-map, lists important canonical pages and explains the Vercel
+Production flag/redeployment requirement. Calendar pages remain explicitly
+noindexed and excluded from the XML sitemap pending engine integration/validation.
+
+Actual external read-only checks:
+
+- https://getpaid.co.in/robots.txt: HTTP 200, Disallow: / (current live version).
+- https://getpaid.co.in/sitemap.xml: HTTP 200, zero loc entries.
+- Homepage: HTTP 200, noindex/nofollow metadata. The live site is still pre-launch
+  for Google; submitting an empty sitemap does not enable indexing.
+- Fifteen important live pages returned HTTP 200: fashion, beauty, grocery, food
+  delivery, electronics and travel categories; Myntra, AJIO, Amazon India and
+  Flipkart stores; guides, FAQ, About, Contact/report and the visitor directory.
+- The web research tool could not fetch this domain; direct HTTPS checks then
+  succeeded. No browser ads or third-party scripts were executed for these GETs.
+
+Checks run: npm test -- tests/unit/discovery.test.ts (4/4 passed), npm run
+typecheck (passed), npm run lint (passed). Production build result is recorded
+below. git diff --check passed; the publication-file scanner checked 311 files
+with zero findings. Full database/browser regression suites were not rerun for
+this metadata-only change.
+
+No Vercel secret/environment setting was modified, no deployment or Git push
+occurred, and no Search Console verification/submission was performed. The local
+robots change and documented Production flag need deployment before appearing on
+the public site. Remaining operator action: set PUBLIC_INDEXING_ENABLED=1 only
+for Vercel Production, redeploy, verify crawl/indexing output, then submit
+sitemap.xml in Search Console. Existing source/publication eligibility controls
+remain unchanged; indexing is not proof of coupon accuracy or calendar readiness.
+
+npm run build passed on Next.js 16.4.3. Inspected the actual generated
+.next/server/app/robots.txt.body: it contains both the retained Disallow: / launch
+policy and the new canonical Sitemap directive. Build route output includes
+/robots.txt and /sitemap.xml. Final git diff --check passed.
+
+## Non-calendar GitHub push scope (2026-10-30)
+
+Owner requested pushing completed work except Panchangam. Prepared only
+app/robots.ts, docs/SEARCH-CONSOLE.md, docs/SEO-STRATEGY.md and the non-calendar
+progress entries for the commit. Calendar source/routes, next.config.ts redirects,
+calendar screenshots/tests/scripts/specification and engine reports remain local
+and unstaged. The mixed working copy of this progress log is retained intact;
+only its non-calendar additions are staged. No credentials or .env.local included.
+
+Reused the preceding successful discovery tests (4/4), TypeScript, lint and build
+because application source has not changed since those checks. Fetch confirmed
+local main and origin/main matched before preparing the commit. The crawl block
+is our existing PUBLIC_INDEXING_ENABLED gate, not a Google-side rejection;
+publishing source alone does not change that Vercel Production setting.
